@@ -27,4 +27,6 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
+        cd django
+        mv core/local_settings.test.py core/local_settings.py
         python manage.py test
