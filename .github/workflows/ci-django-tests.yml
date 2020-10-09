@@ -1,4 +1,4 @@
-name: Django CI
+name: ci-django-tests
 
 on: [pull_request]
 
@@ -21,8 +21,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install -r requirements-test.txt
     - name: Run Tests
       run: |
         cd django
         mv core/local_settings.test.py core/local_settings.py
-        python manage.py test
+        coverage run manage.py test
+        coverage report
