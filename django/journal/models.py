@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 
 
 class Project(models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
     description = models.TextField(blank=True, null=True)
     # Admin fields
@@ -18,7 +17,6 @@ class Project(models.Model):
 
 
 class JournalEntry(models.Model):
-    id = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=100, blank=True, null=True)
     entry_text = models.TextField(blank=True, null=True)
     location = models.TextField(blank=True, null=True)
@@ -36,7 +34,6 @@ class JournalEntry(models.Model):
 
 
 class JournalEntryImage(models.Model):
-    id = models.IntegerField(primary_key=True)
     journal_entry = models.ForeignKey(JournalEntry, on_delete=models.PROTECT)
     name = models.CharField(max_length=50, blank=True, null=True)
     image = models.ImageField(upload_to='journalentryimages')
