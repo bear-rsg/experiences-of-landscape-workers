@@ -20,7 +20,7 @@ class JournalEntry(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     entry_text = models.TextField(blank=True, null=True)
     location = models.TextField(blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
     project = models.ForeignKey(Project, on_delete=models.PROTECT)
     # Admin fields
     admin_notes = models.TextField(blank=True, null=True)
