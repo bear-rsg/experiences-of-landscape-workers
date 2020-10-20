@@ -8,8 +8,8 @@ urlpatterns = [
     # General app's urls
     path('', include('general.urls')),
 
-    # Journal app's urls
-    path('api/', include('journal.urls')),
+    # API app's urls
+    path('api/', include('api.urls')),
 
     # Django admin dashboard's urls
     path('dashboard/', admin.site.urls),
