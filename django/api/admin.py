@@ -9,27 +9,30 @@ class ProjectAdminView(admin.ModelAdmin):
     """
     Customise the Project section of the Django admin
     """
-    list_display = ('name',)
-    search_fields = ('name',)
-    ordering = ('name',)
+    list_display = ('name', 'description', 'admin_published', 'meta_lastupdated_datetime')
+    list_filter = ('admin_published',)
+    search_fields = ('name', 'description')
+    ordering = ('-meta_lastupdated_datetime', 'name')
 
 
 class JournalEntryAdminView(admin.ModelAdmin):
     """
     Customise the Journal Entry section of the Django admin
     """
-    list_display = ('title',)
-    search_fields = ('title',)
-    ordering = ('title',)
+    list_display = ('title', 'entry_text', 'project', 'user', 'admin_published', 'meta_lastupdated_datetime')
+    list_filter = ('admin_published', 'project', 'user')
+    search_fields = ('title', 'entry_text')
+    ordering = ('-meta_lastupdated_datetime', 'title')
 
 
 class JournalEntryImageAdminView(admin.ModelAdmin):
     """
     Customise the Journal Entry Images section of the Django admin
     """
-    list_display = ('name',)
+    list_display = ('name', 'image', 'journal_entry', 'admin_published', 'meta_lastupdated_datetime')
+    list_filter = ('admin_published',)
     search_fields = ('name',)
-    ordering = ('name',)
+    ordering = ('-meta_lastupdated_datetime', 'name')
 
 
 # Register classes

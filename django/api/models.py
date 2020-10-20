@@ -37,9 +37,9 @@ class JournalEntry(models.Model):
 
 
 class JournalEntryImage(models.Model):
-    journal_entry = models.ForeignKey(JournalEntry, on_delete=models.PROTECT)
     name = models.CharField(max_length=50, blank=True, null=True)
     image = models.ImageField(upload_to='journalentryimages')
+    journal_entry = models.ForeignKey(JournalEntry, on_delete=models.PROTECT)
     # Admin fields
     admin_notes = models.TextField(blank=True, null=True)
     admin_published = models.BooleanField(default=True)
