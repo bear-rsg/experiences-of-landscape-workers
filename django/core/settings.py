@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # Custom apps
     'general',
-    'journal'
+    'api'
 ]
 
 MIDDLEWARE = [

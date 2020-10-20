@@ -9,8 +9,8 @@ class Project(models.Model):
     admin_notes = models.TextField(blank=True, null=True)
     admin_published = models.BooleanField(default=True)
     # Metadata fields
-    meta_created_datetime = models.DateTimeField(auto_now_add=True)
-    meta_lastupdated_datetime = models.DateTimeField(auto_now=True)
+    meta_created_datetime = models.DateTimeField(auto_now_add=True, verbose_name='Created')
+    meta_lastupdated_datetime = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
 
     def __str__(self):
         return self.name
@@ -26,23 +26,26 @@ class JournalEntry(models.Model):
     admin_notes = models.TextField(blank=True, null=True)
     admin_published = models.BooleanField(default=True)
     # Metadata fields
-    meta_created_datetime = models.DateTimeField(auto_now_add=True)
-    meta_lastupdated_datetime = models.DateTimeField(auto_now=True)
+    meta_created_datetime = models.DateTimeField(auto_now_add=True, verbose_name='Created')
+    meta_lastupdated_datetime = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
 
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name_plural = "Journal entries"
+
 
 class JournalEntryImage(models.Model):
-    journal_entry = models.ForeignKey(JournalEntry, on_delete=models.PROTECT)
     name = models.CharField(max_length=50, blank=True, null=True)
     image = models.ImageField(upload_to='journalentryimages')
+    journal_entry = models.ForeignKey(JournalEntry, on_delete=models.PROTECT)
     # Admin fields
     admin_notes = models.TextField(blank=True, null=True)
     admin_published = models.BooleanField(default=True)
     # Metadata fields
-    meta_created_datetime = models.DateTimeField(auto_now_add=True)
-    meta_lastupdated_datetime = models.DateTimeField(auto_now=True)
+    meta_created_datetime = models.DateTimeField(auto_now_add=True, verbose_name='Created')
+    meta_lastupdated_datetime = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
 
     def __str__(self):
         if self.name is not None:
