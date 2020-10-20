@@ -17,15 +17,15 @@ SECRET_KEY = ''
 DEBUG = True/False
 
 # Set to ['*'] if in development, or specific IP addresses and domains if in production
-ALLOWED_HOSTS = ['*']/['django-template.bham.ac.uk']
+ALLOWED_HOSTS = ['*']/['landscapeworkers.bham.ac.uk']
 
 # Set the database name below
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'django-template.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'experiences-of-landscape-workers.sqlite3'),
         'TEST': {
-            'NAME': os.path.join(BASE_DIR, 'django-template_TEST.sqlite3'),
+            'NAME': os.path.join(BASE_DIR, 'experiences-of-landscape-workers_TEST.sqlite3'),
         },
     }
 }
