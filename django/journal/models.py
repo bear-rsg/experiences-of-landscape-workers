@@ -9,8 +9,8 @@ class Project(models.Model):
     admin_notes = models.TextField(blank=True, null=True)
     admin_published = models.BooleanField(default=True)
     # Metadata fields
-    metadata_created_datetime = models.DateTimeField(auto_now_add=True)
-    metadata_lastupdated_datetime = models.DateTimeField(auto_now=True)
+    meta_created_datetime = models.DateTimeField(auto_now_add=True)
+    meta_lastupdated_datetime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -26,8 +26,8 @@ class JournalEntry(models.Model):
     admin_notes = models.TextField(blank=True, null=True)
     admin_published = models.BooleanField(default=True)
     # Metadata fields
-    metadata_created_datetime = models.DateTimeField(auto_now_add=True)
-    metadata_lastupdated_datetime = models.DateTimeField(auto_now=True)
+    meta_created_datetime = models.DateTimeField(auto_now_add=True)
+    meta_lastupdated_datetime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -41,8 +41,8 @@ class JournalEntryImage(models.Model):
     admin_notes = models.TextField(blank=True, null=True)
     admin_published = models.BooleanField(default=True)
     # Metadata fields
-    metadata_created_datetime = models.DateTimeField(auto_now_add=True)
-    metadata_lastupdated_datetime = models.DateTimeField(auto_now=True)
+    meta_created_datetime = models.DateTimeField(auto_now_add=True)
+    meta_lastupdated_datetime = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         if self.name is not None:
