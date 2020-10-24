@@ -5,8 +5,8 @@ from django.conf import settings
 
 urlpatterns = [
 
-    # General app's urls
-    path('', include('general.urls')),
+    # Client web app's urls
+    path('', include('clientweb.urls')),
 
     # API app's urls
     path('api/', include('api.urls')),
