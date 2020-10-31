@@ -48,7 +48,9 @@ class JournalEntryViewSet(viewsets.ModelViewSet):
         Only return journal entries for the currently authenticated user,
         and return them in descending order (newest first)
         """
-        return models.JournalEntry.objects.filter(admin_published=True, user=self.request.user).order_by('-meta_created_datetime')
+        return models.JournalEntry.objects\
+            .filter(admin_published=True, user=self.request.user)\
+            .order_by('-meta_created_datetime')
 
 
 class JournalEntryImageViewSet(viewsets.ModelViewSet):
