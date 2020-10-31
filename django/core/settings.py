@@ -19,10 +19,16 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     # 3rd party apps
     'rest_framework',
+    'knox',
     # Custom apps
+    'accounts',
     'api',
     'clientweb'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

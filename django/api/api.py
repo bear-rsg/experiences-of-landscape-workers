@@ -22,7 +22,7 @@ class JournalEntryTagViewSet(viewsets.ModelViewSet):
     queryset = models.JournalEntryTag.objects.filter(admin_published=True)
     serializer_class = serializers.JournalEntryTagSerializer
     permission_classes = [
-        permissions.AllowAny,
+        permissions.IsAuthenticated,
     ]
 
 
@@ -31,11 +31,16 @@ class JournalEntryViewSet(viewsets.ModelViewSet):
     Creates a ViewSet for managing CRUD operations on the Journal Entry model
     """
 
-    queryset = models.JournalEntry.objects.filter(admin_published=True)
     serializer_class = serializers.JournalEntrySerializer
     permission_classes = [
-        permissions.AllowAny,
+        permissions.IsAuthenticated,
     ]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def get_queryset(self):
+        return models.JournalEntry.objects.filter(admin_published=True, user=self.request.user).order_by('-id')
 
 
 class JournalEntryImageViewSet(viewsets.ModelViewSet):
@@ -46,29 +51,5 @@ class JournalEntryImageViewSet(viewsets.ModelViewSet):
     queryset = models.JournalEntryImage.objects.filter(admin_published=True)
     serializer_class = serializers.JournalEntryImageSerializer
     permission_classes = [
-        permissions.AllowAny,
-    ]
-
-
-class JournalEntryAnalysisCodeViewSet(viewsets.ModelViewSet):
-    """
-    Creates a ViewSet for managing CRUD operations on the Journal Entry Analysis Code model
-    """
-
-    queryset = models.JournalEntryAnalysisCode.objects.filter(admin_published=True)
-    serializer_class = serializers.JournalEntryAnalysisCodeSerializer
-    permission_classes = [
-        permissions.AllowAny,
-    ]
-
-
-class JournalEntryAnalysisViewSet(viewsets.ModelViewSet):
-    """
-    Creates a ViewSet for managing CRUD operations on the Journal Entry Analysis model
-    """
-
-    queryset = models.JournalEntryAnalysis.objects.filter(admin_published=True)
-    serializer_class = serializers.JournalEntryAnalysisSerializer
-    permission_classes = [
-        permissions.AllowAny,
+        permissions.IsAuthenticated,
     ]
