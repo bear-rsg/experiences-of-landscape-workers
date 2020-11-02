@@ -11,7 +11,10 @@ urlpatterns = [
     # API app's urls
     path('api/', include('api.urls')),
 
+    # Account app's urls
+    path('', include('accounts.urls')),
+
     # Django admin dashboard's urls
-    path('dashboard/', admin.site.urls),
+    path('dashboard/', admin.site.urls)
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

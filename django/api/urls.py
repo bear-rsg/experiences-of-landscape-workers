@@ -11,10 +11,6 @@ router.register('journalentrytag', api.JournalEntryTagViewSet, 'api-journalentry
 router.register('journalentry', api.JournalEntryViewSet, 'api-journalentry')
 # Journal Entry Image
 router.register('journalentryimage', api.JournalEntryImageViewSet, 'api-journalentryimage')
-# Journal Entry Analysis Code
-router.register('journalentryanalysiscode', api.JournalEntryAnalysisCodeViewSet, 'api-journalentryanalysiscode')
-# Journal Entry Analysis
-router.register('journalentryanalysis', api.JournalEntryAnalysisViewSet, 'api-journalentryanalysis')
 
 
 # Use router to set Django URL patterns
