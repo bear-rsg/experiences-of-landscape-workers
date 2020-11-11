@@ -5,6 +5,7 @@ import { updateJournalEntry } from '../../actions/journalentry';
 
 export class JournalEntryUpdate extends Component {
   state = {
+    id: '',
     title: '',
     entry_text: ''
   };
