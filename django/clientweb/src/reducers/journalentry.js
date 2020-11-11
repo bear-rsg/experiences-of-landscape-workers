@@ -1,4 +1,4 @@
-import { GET_JOURNALENTRY, DELETE_JOURNALENTRY, ADD_JOURNALENTRY, CLEAR_JOURNALENTRY } from '../actions/types.js';
+import { GET_JOURNALENTRY, DELETE_JOURNALENTRY, ADD_JOURNALENTRY, UPDATE_JOURNALENTRY, CLEAR_JOURNALENTRY } from '../actions/types.js';
 
 const initialState = {
   journalentry: [],
@@ -19,7 +19,12 @@ export default function (state = initialState, action) {
     case ADD_JOURNALENTRY:
       return {
         ...state,
-        journalentry: [...state.journalentry, action.payload],
+        journalentry: [action.payload, ...state.journalentry],
+      };
+    case UPDATE_JOURNALENTRY:
+      return {
+        ...state,
+        journalentry: [action.payload, ...state.journalentry],
       };
     case CLEAR_JOURNALENTRY:
       return {

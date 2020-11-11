@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
-import Form from './Form';
-import JournalEntry from './JournalEntry';
+import JournalEntryAdd from './JournalEntryAdd';
+import JournalEntryUpdate from './JournalEntryUpdate';
+import JournalEntryList from './JournalEntryList';
 
 export default function Dashboard() {
   return (
     <Fragment>
-      <Form />
-      <JournalEntry />
+      <JournalEntryAdd />
+      <JournalEntryList />
+      <JournalEntryUpdate />
     </Fragment>
   );
 }

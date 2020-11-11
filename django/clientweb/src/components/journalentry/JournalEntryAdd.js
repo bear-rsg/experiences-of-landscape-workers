@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addJournalEntry } from '../../actions/journalentry';
 
-export class Form extends Component {
+export class JournalEntryAdd extends Component {
   state = {
     title: '',
     entry_text: ''
@@ -45,9 +45,8 @@ export class Form extends Component {
           </div>
           <div className="form-group">
             <label>Text</label>
-            <input
+            <textarea
               className="form-control"
-              type="text"
               name="entry_text"
               onChange={this.onChange}
               value={entry_text}
@@ -64,4 +63,4 @@ export class Form extends Component {
   }
 }
 
-export default connect(null, { addJournalEntry })(Form);
+export default connect(null, { addJournalEntry })(JournalEntryAdd);

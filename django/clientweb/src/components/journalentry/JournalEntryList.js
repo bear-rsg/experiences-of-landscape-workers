@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getJournalEntry, deleteJournalEntry } from '../../actions/journalentry';
 
-export class JournalEntry extends Component {
+export class JournalEntryList extends Component {
   static propTypes = {
     journalentry: PropTypes.array.isRequired,
     getJournalEntry: PropTypes.func.isRequired,
@@ -55,4 +55,4 @@ const mapStateToProps = (state) => ({
   journalentry: state.journalentry.journalentry,
 });
 
-export default connect(mapStateToProps, { getJournalEntry, deleteJournalEntry })(JournalEntry);
+export default connect(mapStateToProps, { getJournalEntry, deleteJournalEntry })(JournalEntryList);
