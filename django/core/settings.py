@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     'knox',
     # Custom apps
     'accounts',
-    'general',
     'journal',
 ]
 
