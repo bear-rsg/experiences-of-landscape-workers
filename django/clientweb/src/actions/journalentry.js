@@ -50,11 +50,12 @@ export const updateJournalEntry = (journalentry) => (dispatch, getState) => {
     axios
         .patch(`/api/journalentry/${journalentry.id}/`, journalentry, tokenConfig(getState))
         .then((res) => {
-            dispatch(createMessage({ updateJournalEntry: 'Journal entry updated' }));
-            dispatch({
-                type: UPDATE_JOURNALENTRY,
-                payload: res.data,
-            });
+            // dispatch(createMessage({ updateJournalEntry: 'Journal entry updated' }));
+            // dispatch({
+            //     type: UPDATE_JOURNALENTRY,
+            //     payload: res.data,
+            // });
+            res.redirect('/')
         })
         .catch((err) => console.log(err));
 };

@@ -38,7 +38,6 @@ export class JournalEntryList extends Component {
                     onClick={this.props.deleteJournalEntry.bind(this, journalentry.id)}
                     className="btn btn-danger btn-sm"
                   >
-                    {' '}
                     Delete
                   </button>
                 </td>

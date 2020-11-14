@@ -6,7 +6,11 @@ import { Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
 import Header from './layout/Header';
-import Dashboard from './journalentry/Dashboard';
+
+import JournalEntryAdd from './journalentry/JournalEntryAdd';
+import JournalEntryUpdate from './journalentry/JournalEntryUpdate';
+import JournalEntryList from './journalentry/JournalEntryList';
+
 import Alerts from './layout/Alerts';
 import Login from './accounts/Login';
 import Register from './accounts/Register';
@@ -37,7 +41,9 @@ class App extends Component {
               <Alerts />
               <div className="container">
                 <Switch>
-                  <PrivateRoute exact path="/" component={Dashboard} />
+                  <PrivateRoute exact path="/" component={JournalEntryList} />
+                  <PrivateRoute exact path="/add" component={JournalEntryAdd} />
+                  <PrivateRoute exact path="/update" component={JournalEntryUpdate} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/login" component={Login} />
                 </Switch>
