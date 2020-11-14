@@ -22,8 +22,8 @@ INSTALLED_APPS = [
     'knox',
     # Custom apps
     'accounts',
-    'api',
-    'clientweb'
+    'general',
+    'journal',
 ]
 
 REST_FRAMEWORK = {

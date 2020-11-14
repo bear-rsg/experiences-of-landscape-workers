@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+    <div class="container-fluid">
+
+        {% for object in object_list %}
+            <h3>{{ object.title }}</h3>
+            <p>
+                {{ object.entry_text }}
+            </p>
+        {% endfor %}
+    
+    </div>
+
+{% endblock %}

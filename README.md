@@ -36,7 +36,6 @@ To run this project, you're required to have the following software installed on
 
 ## Built With
 
-* [React](https://reactjs.org/) - The front-end JS web framework for making the PWA
 * [Django](https://www.djangoproject.com/) - The Python web framework used
 * [Django REST Framework](https://www.django-rest-framework.org/) - The web API framework used
 * [PostgreSQL](https://www.postgresql.org/) - The relational database system

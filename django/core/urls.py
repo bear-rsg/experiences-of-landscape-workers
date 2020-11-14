@@ -5,14 +5,14 @@ from django.conf import settings
 
 urlpatterns = [
 
-    # Client web app's urls
-    path('', include('clientweb.urls')),
-
-    # API app's urls
-    path('api/', include('api.urls')),
-
     # Account app's urls
     path('', include('accounts.urls')),
+
+    # General app's urls
+    path('', include('general.urls')),
+
+    # Journal app's urls
+    path('journal/', include('journal.urls')),
 
     # Django admin dashboard's urls
     path('dashboard/', admin.site.urls)
