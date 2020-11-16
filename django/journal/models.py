@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class BaseModel(models.Model):
@@ -56,6 +57,9 @@ class JournalEntry(BaseModel):
     journal_entry_tag = models.ManyToManyField(JournalEntryTag, blank=True)
     # Foreign key fields
     user = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('journal-journalentry-detail', args=[str(self.id)])
 
     def __str__(self):
         return self.title
