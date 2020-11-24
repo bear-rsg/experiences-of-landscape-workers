@@ -8,6 +8,9 @@ urlpatterns = [
     # Account app's urls
     path('', include('accounts.urls')),
 
+    # General app's urls
+    path('', include('general.urls')),
+
     # Journal app's urls
     path('journal/', include('journal.urls')),
 
