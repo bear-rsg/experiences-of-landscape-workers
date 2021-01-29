@@ -7,10 +7,17 @@
         margin-top: 1em;
     }
 
+    h2 {
+        padding-top: 1em;
+    }
+
     /* ---------- Navigation ---------- */
 
-    h1 {
-        margin: 1.5em 0;
+    #nav-projectlogo-container {
+        display: block;
+        margin-top: 0;
+        padding-top: 1em;
+        padding-bottom: 1em;
     }
 
     nav {
@@ -30,11 +37,13 @@
 
     nav ul li {
         display: block;
-        margin: 1em 0.2em;
+        margin: 0.3em 0.1em;
+        padding: 0.5em;
+        border-left: 5px solid #1c4834;
     }
 
     nav ul li.active {
-        border-left: 5px solid white;
+        border-left: 5px solid #f3edde;
     }
 
     #nav-toggle {
@@ -42,15 +51,21 @@
         position: fixed;
         bottom: 0;
         left: 0;
-        color: white;
-        background-color: black;
+        color: #f3edde;
+        background-color: #1c4834;
         width: 100vw;
         height: 1.5em;
         font-size: 2.6em;
         line-height: 1.5em;
         text-align: center;
-        border-top: 0.3rem solid black;
+        border-top: 0.3rem solid #1c4834;
         cursor: pointer;
         z-index: 1000;
+    }
+
+    /* ---------- Welcome ---------- */
+
+    #welcome-projectlogo {
+        margin: 1em auto 3em auto;
     }
 }

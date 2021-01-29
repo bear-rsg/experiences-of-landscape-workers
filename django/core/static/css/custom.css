@@ -6,12 +6,10 @@ html {
     margin: 0;
     height: 100%;
     font-family: 'Roboto', sans-serif;
-    color: black;
-}
-
-body {
-    font-size: 1.2em;
+    color: #303030;
+    font-size: 1em;
     line-height: 1.5em;
+    background: #E1E1E1;
 }
 
 hr {
@@ -24,10 +22,12 @@ hr {
 }
 
 h2 {
-    padding: 2.3em 0 0.4em 0;
+    padding-bottom: 0.4em;
     font-weight: bold;
     font-size: 1.7em;
     text-transform: uppercase;
+    color: #1c4834;
+    letter-spacing: 0.05em;;
 }
 
 .form-inline .form-control {
@@ -36,27 +36,102 @@ h2 {
 }
 
 a {
-    color: #0072ed;
+    color: #007CC7;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #4DA8DA;
+}
+
+.btn-primary {
+    background: #1c4834;
+    border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    background: #116a42 !important;
+}
+
+.btn-big {
+    display: block;
+    width: 14em;
+    max-width: 90%;
+    font-size: 1.2em;
+    padding: 0.7em 0.2em;
+    margin: 2em auto;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---------- Form ---------- */
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 2.5em;
+}
+
+input,
+textarea {
+    display: block;
+    border: 2px solid #a8a191;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='number'],
+textarea {
+    width: 100%;
+    padding: 0.3em 0.5em;
+    font-size: 0.9em;
+}
+
+input[type='file'] {
+    border: none;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 100%;
+}
+
+input[type='checkbox']:checked {
+    background: #1c4834;
+    border: 2px solid #1c4834;
+}
+
+button[type='submit'] {
+    display: block;
+    width: 10em;
+    max-width: 100%;
+    background: #1c4834;
+    color: white;
+    border: 0;
+    border-radius: 0.2em;
+    padding: 0.8em 2em;
+    margin: 3em auto;
+    font-weight: bold;
+}
+
+.helptext {
+    font-size: 0.8em;
 }
 
 /* ---------- Navigation ---------- */
 
-h1 {
-    font-weight: bold;
-    font-size: 1.3em;
-    text-transform: uppercase;
-}
-
-h1 a,
-h1 a:hover {
-    color: white;
-    text-decoration: none;
-}
-
 nav {
     font-size: 1.3em;
-    background: black;
-    color: white;
+    background: white;
+    color: black;
 }
 
 nav ul {
@@ -70,41 +145,91 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
+    color: #f3edde;
+}
+
+/* ---------- Main ---------- */
+
+main {
+    background: #E1E1E1;
+}
+
+/* ---------- Welcome ---------- */
+
+#welcome-projectlogo {
+    display: block;
+    width: 15em;
+    max-width: 100%;
+}
+
+/* ---------- Stories ---------- */
+
+/* List */
+
+#stories-list-filter-input {
+    padding: 0.5em;
+    width: 40em;
+    max-width: 95%;
+    display: block;
+    margin: 2em auto;
+    border: 1px solid #a8a191;
+    text-align: center;
+}
+
+.stories-list-item {
+    display: block;
+    padding: 0.5em;
+    border-bottom: 1px solid #a8a191;
+}
+
+.stories-list-item:last-of-type {
+    border-bottom: none;
+}
+
+.stories-list-item:hover {
+    text-decoration: none;
+    background: #1c4834;
     color: white;
+}
+
+.stories-list-item-title {
+    font-size: 1.1em;
+}
+
+.stories-list-item-keywords {
+    font-size: 0.8em;
+    margin-top: 0.3em;
+    font-weight: normal;
+    opacity: 0.7;
+}
+
+/* Detail */
+
+.stories-detail-image-container {
+    text-align: center;
+    margin: 3em auto;
+}
+
+.stories-detail-image-container a {
+    display: inline-block;
+}
+
+.stories-detail-image-container a img {
+    max-width: 90%;
 }
 
 /* ---------- Footer ---------- */
 
 footer {
-    border-top: 1px solid #E4E4E4;
-    margin-top: 2em;
-    padding: 2em 0 5em 0;
+    padding: 2em 0 3em 0;
     text-align: center;
-    background: #FFF;
-    color: #202020;
+    color: #303030;
     font-size: 0.8em;
 }
 
-footer a {
-    color: black;
-    font-weight: bold;
-}
-
-footer a:hover {
-    color: black;
-    opacity: 0.75;
-    text-decoration: none;
-}
-
-#footer-content-text {
-    margin-top: 2em;
-}
-
-#footer-content img {
-    width: 20em;
-    max-width: 100%;
+#footer-content p {
+    padding: 0;
     margin: 0;
-    display: inline-block;
 }
 
 /* ---------- Error Pages ---------- */

@@ -5,32 +5,123 @@
 <html lang="en">
 
     <head>
-        <!-- Head content -->
-        {% include 'snippets/base-head.html' %}
+        
+        <title>Experiences of Landscape Workers</title>
+
+        <!--Meta-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Experiences of Landscape Workers research project at the University of Birmingham">
+        <meta name="keywords" content="experiences of landscape workers, landscape, experience, journal, research, jeremy kidwell, humanities, art, birmingham, university, university of birmingham, college of arts and law">
+        <meta name="author" content="University of Birmingham">
+
+        <!-- Fonts -->
+        <!-- Roboto -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+        <!-- CSS -->
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" 
+            href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
+            crossorigin="anonymous">
+
+        <!-- Custom -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/custom_xs.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/custom_lg.css' %}">
+
+        <!--Set the favicon-->
+        <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+
     </head>
 
     <body>
 
+        <!-- Navigation -->
+        <nav>
+            <div class="container-fluid">
+                <ul>
+                    <li class="nav-item{% if request.path == "/" %} active{% endif %}">
+                        <a href="{% url 'welcome' %}">Welcome</a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item{% if request.path == "/journal/" %} active{% endif %}">
+                        <a href="{% url 'journal-journalentry-list' %}">List</a>
+                    </li>
+                    <li class="nav-item{% if request.path == "/journal/create/" %} active{% endif %}">
+                        <a href="{% url 'journal-journalentry-create' %}">Create</a>
+                    </li>
+                    <li class="nav-item{% if request.path == "/accounts/profile/" %} active{% endif %}">
+                        <a href="{% url 'account-profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </li>
+
+                    {% else %}
+                    <li class="nav-item{% if request.path == "/accounts/login/" %} active{% endif %}">
+                        <a href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <!-- Button to toggle site navigation (for smaller displays) -->
+        <div id="nav-toggle">
+            &#8801;
+        </div>
+
         <!-- Main -->
         <main>
-
-            <div id="main-nav">
-                {% include 'snippets/nav.html' %}
-                {% include 'snippets/nav-toggle.html' %}
-            </div>
-
             <div id="main-content">
                 {% block main %}
                 {% endblock %}
             </div>
-
         </main>
 
         <!-- Footer -->
-        {% include 'snippets/footer.html' %}
+        <footer class="container-fluid">
+            <!-- Content -->
+            <div id="footer-content" class="container">
+                <p>
+                    Experiences of Landscape Workers is a research project led by <a href="https://www.birmingham.ac.uk/staff/profiles/tr/kidwell-jeremy.aspx">Dr Jeremy Kidwell</a> at the <a href="http://www.birmingham.ac.uk">University of Birmingham</a>
+                </p>
+                <p>
+                    This website has been developed by the <a href="http://www.birmingham.ac.uk/bear-software">Research Software Group</a> for the <a href="https://www.birmingham.ac.uk/university/colleges/artslaw/index.aspx">College of Arts and Law</a>
+                </p>
+                <p>
+                    <a href="https://www.birmingham.ac.uk/privacy/index.aspx" target="_blank">Privacy</a> |
+                    <a href="https://www.birmingham.ac.uk/legal/index.aspx" target="_blank">Legal</a> |
+                    <a href="https://www.birmingham.ac.uk/university/governance/policies-regs/information/index.aspx" target="_blank">Freedom of Information</a> |
+                    <a href="{% url 'cookies' %}">Cookies</a> |
+                    <a href="https://accessibility.bear.bham.ac.uk/statements-cal.html" target="_blank">Accessibility</a>
+                </p>	
+                <p>
+                    © University of Birmingham {% now "Y" %}
+                </p>
 
-        <!-- JavaScript -->
-        {% include 'snippets/base-js.html' %}
+            </div>
+        </footer>
+
+        <!-- JavaScript: 3rd party -->
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <!-- Cookie jQuery plugin-->
+        <script src="{% static 'js/jquery.cookie.js' %}"></script>
+        <!-- Popper.js (needed for bootstrap) -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <!-- JavaScript: Custom -->
+        <script src="{% static 'js/bundle.js' %}"></script>
+        <script src="{% static 'js/cookiesmsg.js' %}"></script>
 
     </body>
 
