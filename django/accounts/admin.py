@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+from .models import CustomUser, Project, Title
 
 
 class CustomUserAdmin(admin.ModelAdmin):
@@ -15,4 +15,22 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_filter = ['project', 'title']
 
 
+class ProjectAdmin(admin.ModelAdmin):
+    """
+    Display projects in the Django admin
+    """
+
+    list_display = ['name', 'code', 'description', 'consent_message']
+
+
+class TitleAdmin(admin.ModelAdmin):
+    """
+    Display titles in the Django admin
+    """
+
+    list_display = ['name']
+
+
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Project, ProjectAdmin)
+admin.site.register(Title, TitleAdmin)
