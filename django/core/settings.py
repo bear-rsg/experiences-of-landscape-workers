@@ -19,16 +19,11 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     # 3rd party apps
     'rest_framework',
-    'knox',
     # Custom apps
     'accounts',
     'general',
     'journal',
 ]
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,17 +88,20 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "core/static")]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
-
 # Media files (user uploaded content)
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# Authentication URLs
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# Custom user model
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Import local_settings.py
 SECRET_KEY = None

@@ -1,6 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.urls import reverse
+from django.conf import settings
 
 
 class BaseModel(models.Model):
@@ -16,20 +16,6 @@ class BaseModel(models.Model):
     meta_lastupdated_datetime = models.DateTimeField(auto_now=True, verbose_name='Last Updated')
 
 
-class Project(BaseModel):
-    """
-    This model allows the users (and their journal entries) to be organised into different groups/projects.
-    Each user can only belong to one project.
-    """
-    name = models.CharField(max_length=50)
-    code = models.CharField(max_length=10, unique=True)
-    description = models.TextField(blank=True, null=True)
-    consent_message = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
-
 class JournalEntryTag(BaseModel):
     """
     This model allows journal entries to be categorised by tags,
@@ -41,7 +27,7 @@ class JournalEntryTag(BaseModel):
     description = models.TextField(blank=True, null=True)
     is_public = models.BooleanField(default=True)
     # Foreign key fields
-    user = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -56,7 +42,7 @@ class JournalEntry(BaseModel):
     # Many to Many relationship fields
     journal_entry_tag = models.ManyToManyField(JournalEntryTag, blank=True)
     # Foreign key fields
-    user = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('journal-journalentry-detail', args=[str(self.id)])
@@ -100,7 +86,7 @@ class JournalEntryAnalysis(BaseModel):
     analysis_text = models.TextField()
     # Foreign key fields
     journal_entry = models.ForeignKey(JournalEntry, on_delete=models.PROTECT)
-    user = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT, blank=True, null=True)
     # Many to Many relationship fields
     journal_entry_analysis_code = models.ManyToManyField(JournalEntryAnalysisCode, blank=True)
 

@@ -1,0 +1,49 @@
+{# Only run if user IS logged in #}
+{% if user.is_authenticated %}
+
+	<section>
+		<h3>My Details</h3>
+		<div id="account-details">
+
+			<div class="account-detail">
+				<label>Username:</label>{{ user.username }}
+			</div>
+
+			<div class="account-detail">
+				<label>Name:</label>{{ user.title }} {{ user.first_name }} {{ user.last_name }}
+			</div>
+
+			<div class="account-detail">
+				<label>Email:</label>{{ user.email }}
+			</div>
+
+			<div class="account-detail">
+				<label>Role:</label>{{ user.role }}
+			</div>
+
+			<div class="account-detail">
+				<label>Date joined:</label>{{ user.date_joined }}
+			</div>
+
+			<div class="account-detail">
+				<label>Last logged in:</label>{{ user.last_login }}
+			</div>
+
+		</div>
+	</section>
+
+	<section>
+		<h3>Update Details</h3>
+		<div>
+			If you'd like to update your details, please <a href="mailto:digitalcultures@contacts.bham.ac.uk?subject=Digital Cultures: Change Account Details&body=Hi, I would like to update my account details on the Digital Cultures website as follows:%0D%0A%0D%0A">contact the system admin</a> with your new details
+		</div>
+	</section>
+
+	<section>
+		<h3>Logout</h3>
+		<div>
+			<a href="{% url 'logout' %}">Click here</a> to logout of your account
+		</div>
+	</section>
+	
+{% endif %}

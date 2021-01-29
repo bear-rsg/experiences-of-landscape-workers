@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+	{# Content to include if the user IS logged in #}
+	{% include "account/pagesections/account-isauthenticated.html" %}
+	{# Content to include if the user IS NOT logged in #}
+	{% include "account/pagesections/account-isnotauthenticated.html" %}
+
+{% endblock %}

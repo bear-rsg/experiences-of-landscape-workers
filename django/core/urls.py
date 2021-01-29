@@ -5,14 +5,17 @@ from django.conf import settings
 
 urlpatterns = [
 
-    # Account app's urls
-    path('', include('accounts.urls')),
-
     # General app's urls
     path('', include('general.urls')),
 
     # Journal app's urls
     path('journal/', include('journal.urls')),
+
+    # Account app's urls & Django's built in auth's urls
+    # Share same pattern (accounts/) for consistency for user
+    # Accounts app's urls must appear above Django's auth's urls to take priority
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 
     # Django admin dashboard's urls
     path('dashboard/', admin.site.urls)
