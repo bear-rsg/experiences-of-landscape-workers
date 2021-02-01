@@ -6,7 +6,7 @@ resources/private/
 *.sqlite3
 django/media/
 django/static/
-node_modules/
+private_testdata*.py
 
 
 ###################### Django Templated gitignore paths  ######################
