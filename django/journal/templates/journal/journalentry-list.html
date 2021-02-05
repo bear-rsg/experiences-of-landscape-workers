@@ -5,11 +5,25 @@
 
     <div class="container-fluid">
 
+        <section>
+            <label for="journalentry-list-search" class="hidden">Search:</label>
+            <input type="text" id="journalentry-list-search" placeholder="Search">
+        </section>
+        
+
+        <h2>Journal Entries</h2>
+
         {% for object in object_list %}
-            <h3>{{ object.title }}</h3>
-            <p>
-                {{ object.entry_text }}
-            </p>
+            <section>
+                <a class="journalentry-list-item-title" href="{% url 'journal-journalentry-detail' object.id %}">{{ object.title }}</a>
+                <div class="journalentry-list-item-text">
+                    {{ object.entry_text|truncatechars:250 }}
+                </div>
+            </section>
+        {% empty %}
+            <div class="journalentry-list-empty">
+                No entries found
+            </div>
         {% endfor %}
     
     </div>

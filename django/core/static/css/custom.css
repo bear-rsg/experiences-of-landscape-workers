@@ -22,7 +22,7 @@ hr {
 }
 
 h2 {
-    padding-top: 1.7em;
+    padding-top: 1.3em;
     padding-bottom: 0.2em;
     font-weight: bold;
     font-size: 2.3em;
@@ -177,13 +177,17 @@ nav ul {
     font-size: 0.7em;
 }
 
-
 /* ---------- Main ---------- */
 
 section {
     background: white;
     display: block;
     border-radius: 0.5rem;
+    margin: 1.5em 0;
+}
+
+section p {
+    margin-bottom: 0;
 }
 
 /* ---------- Welcome ---------- */
@@ -194,66 +198,44 @@ section#section-welcome-banner {
 	background-position: center;
     background-color: black;
 }
+
 section#section-welcome-banner h2 {
     color: white;
     font-weight: bold;
     text-shadow: 2px 2px rgba(0,0,0,0.3);
 }
 
-/* ---------- Stories ---------- */
+/* ---------- Journal ---------- */
 
-/* List */
-
-#stories-list-filter-input {
-    padding: 0.5em;
-    width: 40em;
-    max-width: 95%;
-    display: block;
-    margin: 2em auto;
-    border: 1px solid #a8a191;
+.journalentry-list-empty {
     text-align: center;
-}
-
-.stories-list-item {
-    display: block;
-    padding: 0.5em;
-    border-bottom: 1px solid #a8a191;
-}
-
-.stories-list-item:last-of-type {
-    border-bottom: none;
-}
-
-.stories-list-item:hover {
-    text-decoration: none;
-    background: #1c4834;
-    color: white;
-}
-
-.stories-list-item-title {
     font-size: 1.1em;
+    color: #808080;    
 }
 
-.stories-list-item-keywords {
-    font-size: 0.8em;
-    margin-top: 0.3em;
+.journalentry-list-item-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    display: block;
+}
+
+.journalentry-list-item-text {
+    font-size: 1em;
+}
+
+/* ---------- Account ---------- */
+
+.account-detail {
+    margin: 0.27em 0;
+    font-weight: bold;
+}
+
+.account-detail label {
+    display: inline;
+    margin-right: 0.5em;
+    color: #505050;
     font-weight: normal;
-    opacity: 0.7;
-}
-
-/* Detail */
-
-.stories-detail-image-container {
-    text-align: center;
-    margin: 3em auto;
-}
-
-.stories-detail-image-container a {
-    display: inline-block;
-}
-
-.stories-detail-image-container a img {
-    max-width: 90%;
 }
 
 /* ---------- Footer ---------- */
