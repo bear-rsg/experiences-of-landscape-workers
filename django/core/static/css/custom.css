@@ -22,6 +22,7 @@ hr {
 }
 
 h2 {
+    padding-top: 1.7em;
     padding-bottom: 0.2em;
     font-weight: bold;
     font-size: 2.3em;
@@ -182,7 +183,6 @@ nav ul {
 section {
     background: white;
     display: block;
-    padding: 2em;
     border-radius: 0.5rem;
 }
 
@@ -197,9 +197,6 @@ section#section-welcome-banner {
 section#section-welcome-banner h2 {
     color: white;
     font-weight: bold;
-    font-size: 3.5em;
-    padding: 7em 0.5em 0.2em 0.5em;
-    vertical-align: bottom;
     text-shadow: 2px 2px rgba(0,0,0,0.3);
 }
 

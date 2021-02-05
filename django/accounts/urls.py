@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
 
     # Authentication views
-    
+
     # Override login view to set it to redirect to home if user already logged in
     path('login/', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
 

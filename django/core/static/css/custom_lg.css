@@ -7,24 +7,29 @@
         margin-top: 4rem;
     }
 
-    h2 {
-        padding-top: 1.5em;
-    }
-
     /* ---------- Navigation ---------- */
 
     nav {
         top: 0;
         bottom: auto;
+        border-top: 0;
     }
 
     .nav-item {
         width: 5em;
     }
 
+    /* ---------- Main ---------- */
+
+    section {
+        padding: 2em;
+    }
+
     /* ---------- Welcome ---------- */
 
-    #welcome-projectlogo {
-        margin: 5em auto 2em auto;
+    section#section-welcome-banner h2 {
+        font-size: 3.5em;
+        padding: 7em 0.5em 0.2em 0.5em;
+        vertical-align: bottom;
     }
 }
