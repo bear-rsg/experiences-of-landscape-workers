@@ -22,12 +22,10 @@ hr {
 }
 
 h2 {
-    padding-bottom: 0.4em;
+    padding-bottom: 0.2em;
     font-weight: bold;
-    font-size: 1.7em;
-    text-transform: uppercase;
-    color: #1c4834;
-    letter-spacing: 0.05em;;
+    font-size: 2.3em;
+    color: #303030;
 }
 
 .form-inline .form-control {
@@ -36,12 +34,12 @@ h2 {
 }
 
 a {
-    color: #007CC7;
+    color: #005763;
     font-weight: bold;
 }
 
 a:hover {
-    color: #4DA8DA;
+    color: #130f40;
 }
 
 .btn-primary {
@@ -52,7 +50,7 @@ a:hover {
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:focus {
-    background: #116a42 !important;
+    background: #005763 !important;
 }
 
 .btn-big {
@@ -80,7 +78,7 @@ label {
 input,
 textarea {
     display: block;
-    border: 2px solid #a8a191;
+    border: 2px solid #005763;
 }
 
 input[type='text'],
@@ -105,15 +103,15 @@ input[type='checkbox'] {
 }
 
 input[type='checkbox']:checked {
-    background: #1c4834;
-    border: 2px solid #1c4834;
+    background: #005763;
+    border: 2px solid #005763;
 }
 
 button[type='submit'] {
     display: block;
     width: 10em;
     max-width: 100%;
-    background: #1c4834;
+    background: #005763;
     color: white;
     border: 0;
     border-radius: 0.2em;
@@ -129,37 +127,80 @@ button[type='submit'] {
 /* ---------- Navigation ---------- */
 
 nav {
-    font-size: 1.3em;
+    font-size: 1rem;
     background: white;
-    color: black;
+    padding-top: 0.4em;
+    height: 3em;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    overflow: hidden;
 }
 
 nav ul {
     padding: 0;
+    text-align: center;
 }
 
-nav ul li {
+.nav-item {
+    text-align: center;
     list-style-type: none;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    display: inline-block;
 }
 
-nav ul li a {
+.nav-item a {
     text-decoration: none;
-    color: #f3edde;
+    color: #272727;
 }
+
+.nav-item.active a {
+    color: #005763;
+}
+
+.nav-item a:hover {
+    color: #005763;
+}
+
+.nav-item i {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.25em;
+}
+
+.nav-item-text {
+    width: 100%;
+    display: block;
+    margin-top: -0.5em;
+    font-weight: normal;
+    font-size: 0.7em;
+}
+
 
 /* ---------- Main ---------- */
 
-main {
-    background: #E1E1E1;
+section {
+    background: white;
+    display: block;
+    padding: 2em;
+    border-radius: 0.5rem;
 }
 
 /* ---------- Welcome ---------- */
 
-#welcome-projectlogo {
-    display: block;
-    width: 15em;
-    max-width: 100%;
+section#section-welcome-banner {
+    background-image: url('../images/backgrounds/welcome-banner.jpg');
+    background-size: cover;
+	background-position: center;
+    background-color: black;
+}
+section#section-welcome-banner h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 3.5em;
+    padding: 7em 0.5em 0.2em 0.5em;
+    vertical-align: bottom;
+    text-shadow: 2px 2px rgba(0,0,0,0.3);
 }
 
 /* ---------- Stories ---------- */
@@ -221,10 +262,11 @@ main {
 /* ---------- Footer ---------- */
 
 footer {
-    padding: 2em 0 3em 0;
+    margin-top: 5em;
+    padding: 2em 0 7em 0;
     text-align: center;
-    color: #303030;
-    font-size: 0.8em;
+    color: #606060;
+    font-size: 0.9em;
 }
 
 #footer-content p {

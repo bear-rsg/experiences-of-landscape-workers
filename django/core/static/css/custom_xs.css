@@ -13,54 +13,14 @@
 
     /* ---------- Navigation ---------- */
 
-    #nav-projectlogo-container {
-        display: block;
-        margin-top: 0;
-        padding-top: 1em;
-        padding-bottom: 1em;
-    }
-
     nav {
-        position: fixed;
-        top: 100vh;
-        right: 0;
-        width: 100vw;
-        height: calc(100vh - 3em);
-        overflow: auto;
-        z-index: 999;
-        vertical-align: middle;
-    }
-
-    nav.nav-visible {
-        top: 0;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 0.3em 0.1em;
-        padding: 0.5em;
-        border-left: 5px solid #1c4834;
-    }
-
-    nav ul li.active {
-        border-left: 5px solid #f3edde;
-    }
-
-    #nav-toggle {
-        display: block;
-        position: fixed;
+        top: auto;
         bottom: 0;
-        left: 0;
-        color: #f3edde;
-        background-color: #1c4834;
-        width: 100vw;
-        height: 1.5em;
-        font-size: 2.6em;
-        line-height: 1.5em;
-        text-align: center;
-        border-top: 0.3rem solid #1c4834;
-        cursor: pointer;
-        z-index: 1000;
+    }
+
+    .nav-item {
+        width: 19%;
+        /* margin: 0 0.3em; */
     }
 
     /* ---------- Welcome ---------- */

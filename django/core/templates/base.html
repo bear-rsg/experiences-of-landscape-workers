@@ -47,39 +47,53 @@
             <div class="container-fluid">
                 <ul>
                     <li class="nav-item{% if request.path == "/" %} active{% endif %}">
-                        <a href="{% url 'welcome' %}">Welcome</a>
+                        <a href="{% url 'welcome' %}">
+                            <i class="fas fa-square"></i>
+                            <span class="nav-item-text">Welcome</span>
+                        </a>
                     </li>
 
                     {% if user.is_authenticated %}
                     <li class="nav-item{% if request.path == "/journal/" %} active{% endif %}">
-                        <a href="{% url 'journal-journalentry-list' %}">List</a>
+                        <a href="{% url 'journal-journalentry-list' %}">
+                            <i class="fas fa-book-open"></i>
+                            <span class="nav-item-text">Journal</span>
+                        </a>
                     </li>
                     <li class="nav-item{% if request.path == "/journal/create/" %} active{% endif %}">
-                        <a href="{% url 'journal-journalentry-create' %}">Create</a>
+                        <a href="{% url 'journal-journalentry-create' %}">
+                            <i class="fas fa-pen"></i>
+                            <span class="nav-item-text">Add Entry</span>
+                        </a>
                     </li>
                     <li class="nav-item{% if request.path == "/accounts/profile/" %} active{% endif %}">
-                        <a href="{% url 'account-profile' %}">Profile</a>
+                        <a href="{% url 'account-profile' %}">
+                            <i class="fas fa-user"></i>
+                            <span class="nav-item-text">Profile</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'logout' %}">Logout</a>
+                        <a href="{% url 'logout' %}">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="nav-item-text">Logout</span>
+                        </a>
                     </li>
 
                     {% else %}
                     <li class="nav-item{% if request.path == "/accounts/login/" %} active{% endif %}">
-                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'login' %}">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span class="nav-item-text">Login</span>
+                        </a>
                     </li>
                     {% endif %}
                 </ul>
             </div>
         </nav>
-        <!-- Button to toggle site navigation (for smaller displays) -->
-        <div id="nav-toggle">
-            &#8801;
-        </div>
 
         <!-- Main -->
         <main>
-            <div id="main-content">
+            <div id="main-content" class="container">
                 {% block main %}
                 {% endblock %}
             </div>

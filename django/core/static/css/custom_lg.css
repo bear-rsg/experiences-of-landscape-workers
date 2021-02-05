@@ -14,54 +14,12 @@
     /* ---------- Navigation ---------- */
 
     nav {
-        position: fixed;
         top: 0;
-        left: 0;
-        height: 4rem;
-        padding-top: 0.5em;
-        overflow: hidden;
-        font-size: 1em;
-        font-weight: 400;
+        bottom: auto;
     }
 
-    nav.nav-visible {
-        top: 0;
-    }
-
-    nav ul {
-        text-align: center;
-        padding: 0;
-        display: block;
-    }
-
-    nav ul li {
-        display: inline-block;
-        list-style-type: none;
-        margin: 0.5em 0.3em;
-        text-transform: uppercase;
-        padding: 0;
-        border-left: 0;
-    }
-
-    nav ul li a {
-        padding: 0.5em 0.7em;
-        text-decoration: none;
-    }
-
-    nav ul li a:hover {
-        text-decoration: none;
-        color: #1c4834;
-        background-color: #f3edde;
-    }
-
-    nav ul li.active {
-        border: none;
-        border-bottom: 3px solid #f3edde;
-        font-weight: bold;
-    }
-
-    #nav-toggle {
-        display: none;
+    .nav-item {
+        width: 5em;
     }
 
     /* ---------- Welcome ---------- */
