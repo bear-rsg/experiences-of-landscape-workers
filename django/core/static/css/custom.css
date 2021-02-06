@@ -224,6 +224,23 @@ section#section-welcome-banner h2 {
     font-size: 1em;
 }
 
+.journalentry-detail-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.6em;
+    display: block;
+}
+
+.journalentry-detail-text {
+    font-size: 1em;
+    line-height: 1.7em;
+    letter-spacing: 0.03em;
+}
+
+.journalentry-detail-text p {
+    margin-top: 2em;
+}
+
 /* ---------- Account ---------- */
 
 .account-detail {

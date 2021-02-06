@@ -14,12 +14,14 @@
         <h2>Journal Entries</h2>
 
         {% for object in object_list %}
+        <a href="{% url 'journal-journalentry-detail' object.id %}">
             <section>
-                <a class="journalentry-list-item-title" href="{% url 'journal-journalentry-detail' object.id %}">{{ object.title }}</a>
+                <div class="journalentry-list-item-title">{{ object.title }}</div>
                 <div class="journalentry-list-item-text">
                     {{ object.entry_text|truncatechars:250 }}
                 </div>
             </section>
+        </a>
         {% empty %}
             <div class="journalentry-list-empty">
                 No entries found
