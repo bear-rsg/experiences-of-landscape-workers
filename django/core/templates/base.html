@@ -54,7 +54,7 @@
                     </li>
 
                     {% if user.is_authenticated %}
-                    <li class="nav-item{% if request.path == "/journal/" %} active{% endif %}">
+                    <li class="nav-item{% if "/journal/" in request.path and "/create/" not in request.path %} active{% endif %}">
                         <a href="{% url 'journal-journalentry-list' %}">
                             <i class="fas fa-book-open"></i>
                             <span class="nav-item-text">Journal</span>

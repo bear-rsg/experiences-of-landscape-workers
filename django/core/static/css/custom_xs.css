@@ -13,6 +13,7 @@
         top: auto;
         bottom: 0;
         border-top: 1px solid #DDD;
+        border-bottom: 0;
     }
 
     .nav-item {
@@ -31,5 +32,28 @@
         font-size: 2.7em;
         padding: 3em 0 0 0em;
         vertical-align: bottom;
+    }
+    
+    /* ---------- Journal ---------- */
+
+    #journalentry-list-search {
+        margin: 4em auto 1.5em auto;
+        width: 100%;
+    }
+
+    #journalentry-detail-actions {
+        text-align: center;
+        margin-top: 2em;
+    }
+    
+    #journalentry-detail-actions a {
+        width: 100%;
+        margin-top: 2em;
+        font-size: 1em;
+        padding: 0.8em 0;
+    }
+    
+    #journalentry-detail-actions a i {
+        margin-right: 0.5em;
     }
 }

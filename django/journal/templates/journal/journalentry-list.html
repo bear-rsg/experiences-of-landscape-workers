@@ -5,16 +5,19 @@
 
     <div class="container-fluid">
 
-        <section>
+        <form action="" method="get">
             <label for="journalentry-list-search" class="hidden">Search:</label>
-            <input type="text" id="journalentry-list-search" placeholder="Search">
-        </section>
-        
+            <input type="text" id="journalentry-list-search" name="search" title="search" placeholder="Search">
+            <script>
+                var search = new URL(window.location.href).searchParams.get("search");
+                if(search) document.getElementById('journalentry-list-search').value = search;
+            </script>
+        </form>
 
-        <h2>Journal Entries</h2>
+        <h2>My Journal Entries</h2>
 
         {% for object in object_list %}
-        <a href="{% url 'journal-journalentry-detail' object.id %}">
+        <a class="journalentry-list-item" href="{% url 'journal-journalentry-detail' object.id %}">
             <section>
                 <div class="journalentry-list-item-title">{{ object.title }}</div>
                 <div class="journalentry-list-item-text">
@@ -23,9 +26,14 @@
             </section>
         </a>
         {% empty %}
-            <div class="journalentry-list-empty">
-                No entries found
-            </div>
+            <section class="journalentry-list-empty">
+                <strong>
+                    No entries found.
+                </strong>
+                <p>
+                    To get started, <a href="{% url 'journal-journalentry-create' %}">add a new entry</a> to your journal
+                </p>
+            </section>
         {% endfor %}
     
     </div>

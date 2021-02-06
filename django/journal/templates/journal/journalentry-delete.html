@@ -5,11 +5,15 @@
 
     <h2>Delete Journal Entry</h2>
     <section>
-        <form method="post">{% csrf_token %}
-            <p>
-                Deleting a journal entry is <strong>permanent</strong> and <strong>cannot be undone</strong>. Are you sure you want to delete <strong>"{{ object }}"</strong>?
-            </p>
-            <button type="submit" class="btn btn-danger">Confirm</button>
+        <form action="" method="post">{% csrf_token %}
+            <label class="confirmation">
+                Deleting a journal entry is <span class="danger">permanent</span> and <span class="danger">cannot be undone</span>.
+                <br>
+                Are you sure you want to <span class="danger">permanently delete</span>:
+                <br>
+                <strong>{{ object }}</strong>
+            </label>
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Confirm</button>
         </form>
     </section>
 

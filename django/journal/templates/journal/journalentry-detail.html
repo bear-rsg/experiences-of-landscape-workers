@@ -5,35 +5,24 @@
 
     <div class="container-fluid">
 
+        <div>
+            <a href="{% url 'journal-journalentry-list' %}">&lt; My Journal Entries</a>
+        </div>
+
         <h2>Journal Entry</h2>
         <section>
-            <i class="fas fa-ellipsis-v" style="float: right;"></i>
             <div class="journalentry-detail-title">{{ object.title }}</div>
             <div class="journalentry-detail-text">{{ object.entry_text|linebreaks }}</div>
         </section>
 
-        <i class="fas fa-edit"></i>
-        <i class="fas fa-trash-alt"></i>
-<!-- 
-        <h2>Modify</h2>
-        <section>
-            <p>
-                You can <a href="{% url 'journal-journalentry-update' object.id %}">update this journal entry</a>.
-            </p>
-            <ul>
-                <li>xxxx</li>
-            </ul>
-        </section>
-
-        <h2>Delete</h2>
-        <section>
-            <p>
-                You can <a href="{% url 'journal-journalentry-update' object.id %}">delete this journal entry</a>.
-            </p>
-            <p>
-                Please note that this is permanent. Once a journal entry is deleted it cannot be recovered.
-            </p>
-        </section> -->
+        <div id="journalentry-detail-actions">
+            <a href="{% url 'journal-journalentry-update' object.id %}" class="btn btn-info">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a href="{% url 'journal-journalentry-delete' object.id %}" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Delete
+            </a>
+        </div>
 
     </div>
 
