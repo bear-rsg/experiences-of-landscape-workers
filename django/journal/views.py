@@ -14,6 +14,9 @@ class JournalEntryListView(LoginRequiredMixin, ListView):
     paginate_by = 10
 
     def get_queryset(self):
+        """
+        Limit the objects to that of the logged in user only
+        """
         return models.JournalEntry.objects.filter(
             user=self.request.user
         ).order_by('-meta_created_datetime')
@@ -28,6 +31,9 @@ class JournalEntryDetailView(LoginRequiredMixin, DetailView):
     model = models.JournalEntry
 
     def get_queryset(self):
+        """
+        Limit the object to that of the logged in user only
+        """
         return models.JournalEntry.objects.filter(
             user=self.request.user
         )
@@ -60,6 +66,14 @@ class JournalEntryUpdateView(LoginRequiredMixin, UpdateView):
     fields = ['title', 'entry_text']
     model = models.JournalEntry
 
+    def get_queryset(self):
+        """
+        Limit the object to that of the logged in user only
+        """
+        return models.JournalEntry.objects.filter(
+            user=self.request.user
+        )
+
 
 class JournalEntryDeleteView(LoginRequiredMixin, DeleteView):
     """
@@ -69,3 +83,11 @@ class JournalEntryDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'journal/journalentry-delete.html'
     model = models.JournalEntry
     success_url = reverse_lazy('journal-journalentry-list')
+
+    def get_queryset(self):
+        """
+        Limit the object to that of the logged in user only
+        """
+        return models.JournalEntry.objects.filter(
+            user=self.request.user
+        )
