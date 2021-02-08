@@ -1,6 +1,7 @@
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
-from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
+from django.urls import reverse_lazy
 from . import models
 
 
@@ -11,15 +12,25 @@ class JournalEntryListView(LoginRequiredMixin, ListView):
 
     template_name = 'journal/journalentry-list.html'
     model = models.JournalEntry
-    paginate_by = 10
+    paginate_by = 30
 
     def get_queryset(self):
-        """
-        Limit the objects to that of the logged in user only
-        """
-        return models.JournalEntry.objects.filter(
+        
+        # Limit the objects to that of the logged in user only
+        queryset = models.JournalEntry.objects.filter(
             user=self.request.user
         ).order_by('-meta_created_datetime')
+    
+        # Filter based on search (if provided)
+        search = self.request.GET.get('search', '')
+        if search != '':
+            queryset = queryset.filter(
+                Q(id__contains=search) |
+                Q(title__contains=search) |
+                Q(entry_text__contains=search)
+            )
+        
+        return queryset
 
 
 class JournalEntryDetailView(LoginRequiredMixin, DetailView):

@@ -18,6 +18,7 @@
 
     .nav-item {
         width: calc(20% - 0.2em);
+        min-width:3.3em;
     }
 
     /* ---------- Main ---------- */

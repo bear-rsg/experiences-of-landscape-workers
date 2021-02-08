@@ -97,7 +97,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Authentication URLs
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/journal/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Custom user model

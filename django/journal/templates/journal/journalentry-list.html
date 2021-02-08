@@ -14,7 +14,7 @@
             </script>
         </form>
 
-        <h2>My Journal Entries</h2>
+        <h2>My Journal</h2>
 
         {% for object in object_list %}
         <a class="journalentry-list-item" href="{% url 'journal-journalentry-detail' object.id %}">
