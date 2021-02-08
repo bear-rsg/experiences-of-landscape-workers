@@ -3,9 +3,18 @@
 
 {% block main %}
 
-    <form method="post">{% csrf_token %}
-        <p>Are you sure you want to delete "{{ object }}"?</p>
-        <input type="submit" value="Confirm">
-    </form>
+    <h2>Delete Journal Entry</h2>
+    <section>
+        <form action="" method="post">{% csrf_token %}
+            <label class="confirmation">
+                Deleting a journal entry is <span class="danger">permanent</span> and <span class="danger">cannot be undone</span>.
+                <br>
+                Are you sure you want to <span class="danger">permanently delete</span>:
+                <br>
+                <strong>{{ object }}</strong>
+            </label>
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Confirm</button>
+        </form>
+    </section>
 
 {% endblock %}
