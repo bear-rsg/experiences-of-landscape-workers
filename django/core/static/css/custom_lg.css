@@ -9,51 +9,60 @@
 
     /* ---------- Navigation ---------- */
 
+    h1 {
+        display: inline-block;
+        width: 20rem;
+        margin-top: 0;
+    }
+
     nav {
+        position: fixed;
         top: 0;
-        bottom: auto;
-        border-top: 0;
-        border-bottom: 1px solid #DDD;
+        left: 0;
+        height: 4rem;
+        padding-top: 0.5em;
+        overflow: hidden;
+        font-size: 1em;
+        font-weight: 400;
+        border-bottom: 1px solid #AAA;
     }
 
-    .nav-item {
-        width: 5em;
+    nav.nav-visible {
+        top: 0;
     }
 
-    /* ---------- Main ---------- */
-
-    section {
-        padding: 2em;
-    }
-
-    /* ---------- Welcome ---------- */
-
-    section#section-welcome-banner h2 {
-        font-size: 3.5em;
-        padding: 7em 0.5em 0.2em 0.5em;
-        vertical-align: bottom;
-    }
-
-    /* ---------- Journal ---------- */
-
-    #journalentry-list-search {
-        margin: 7.5em auto 2em auto;
-        width: 30em;
-    }
-
-    #journalentry-detail-actions {
+    nav ul {
         text-align: right;
-        margin-top: 2.7em;
-    }
-    
-    #journalentry-detail-actions a {
-        width: 6.9em;
-        margin-left: 2em;
-        font-size: 0.9em;
-    }
-    
-    #journalentry-detail-actions a i {
-        margin-right: 0.5em;
+        padding: 0;
+        display: inline-block;
+        width: calc(100% - 20.3rem);
     }
 
+    nav ul li {
+        display: inline-block;
+        list-style-type: none;
+        margin: -4px 0.5em;
+        text-transform: uppercase;
+        border: 4px solid black;
+    }
+
+    nav ul li a {
+        padding: 0 4em;
+        text-decoration: none;
+    }
+
+    nav ul li a:hover {
+        text-decoration: none;
+        background-color: black;
+        color: white;
+    }
+
+    nav ul li.active {
+        border: 3px solid white;
+        font-weight: bold;
+    }
+
+    #nav-toggle {
+        display: none;
+    }
 }
