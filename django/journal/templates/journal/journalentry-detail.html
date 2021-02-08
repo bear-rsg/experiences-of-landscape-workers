@@ -5,11 +5,25 @@
 
     <div class="container-fluid">
 
-        <h3>{{ object.title }}</h3>
-        <p>
-            {{ object.entry_text }}
-        </p>
-    
+        <div>
+            <a href="{% url 'journal-journalentry-list' %}">&lt; My Journal</a>
+        </div>
+
+        <h2>Journal Entry</h2>
+        <section>
+            <div class="journalentry-detail-title">{{ object.title }}</div>
+            <div class="journalentry-detail-text">{{ object.entry_text|linebreaks }}</div>
+        </section>
+
+        <div id="journalentry-detail-actions">
+            <a href="{% url 'journal-journalentry-update' object.id %}" class="btn btn-info">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a href="{% url 'journal-journalentry-delete' object.id %}" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Delete
+            </a>
+        </div>
+
     </div>
 
 {% endblock %}
