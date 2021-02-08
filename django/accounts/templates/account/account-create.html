@@ -4,8 +4,8 @@
 {% block main %}
 
     {# Sign up #}
-    <h2>Create Account</h2>
     <section>
+        <h3>Create Account</h3>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}

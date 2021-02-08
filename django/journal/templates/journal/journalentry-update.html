@@ -3,12 +3,9 @@
 
 {% block main %}
 
-    <h2>Update Journal Entry</h2>
-    <section>
-        <form method="post">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </section>
-    
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+
 {% endblock %}

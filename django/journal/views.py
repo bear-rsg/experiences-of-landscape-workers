@@ -1,39 +1,19 @@
 from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import Q
 from django.urls import reverse_lazy
 from . import models
 
 
-class JournalEntryListView(LoginRequiredMixin, ListView):
+class JournalEntryListView(ListView):
     """
     Class-based view to show the Journal Entry list template
     """
 
     template_name = 'journal/journalentry-list.html'
     model = models.JournalEntry
-    paginate_by = 30
-
-    def get_queryset(self):
-        
-        # Limit the objects to that of the logged in user only
-        queryset = models.JournalEntry.objects.filter(
-            user=self.request.user
-        ).order_by('-meta_created_datetime')
-    
-        # Filter based on search (if provided)
-        search = self.request.GET.get('search', '')
-        if search != '':
-            queryset = queryset.filter(
-                Q(id__contains=search) |
-                Q(title__contains=search) |
-                Q(entry_text__contains=search)
-            )
-        
-        return queryset
+    paginate_by = 10
 
 
-class JournalEntryDetailView(LoginRequiredMixin, DetailView):
+class JournalEntryDetailView(DetailView):
     """
     Class-based view to show the Journal Entry detail template
     """
@@ -41,16 +21,8 @@ class JournalEntryDetailView(LoginRequiredMixin, DetailView):
     template_name = 'journal/journalentry-detail.html'
     model = models.JournalEntry
 
-    def get_queryset(self):
-        """
-        Limit the object to that of the logged in user only
-        """
-        return models.JournalEntry.objects.filter(
-            user=self.request.user
-        )
 
-
-class JournalEntryCreateView(LoginRequiredMixin, CreateView):
+class JournalEntryCreateView(CreateView):
     """
     Class-based view to show the Journal Entry create template
     """
@@ -59,16 +31,8 @@ class JournalEntryCreateView(LoginRequiredMixin, CreateView):
     fields = ['title', 'entry_text']
     model = models.JournalEntry
 
-    def form_valid(self, form):
-        """
-        Adds the current user from the request as the 'user' field for this new object
-        """
-        user = self.request.user
-        form.instance.user = user
-        return super(JournalEntryCreateView, self).form_valid(form)
 
-
-class JournalEntryUpdateView(LoginRequiredMixin, UpdateView):
+class JournalEntryUpdateView(UpdateView):
     """
     Class-based view to show the Journal Entry update template
     """
@@ -77,16 +41,8 @@ class JournalEntryUpdateView(LoginRequiredMixin, UpdateView):
     fields = ['title', 'entry_text']
     model = models.JournalEntry
 
-    def get_queryset(self):
-        """
-        Limit the object to that of the logged in user only
-        """
-        return models.JournalEntry.objects.filter(
-            user=self.request.user
-        )
 
-
-class JournalEntryDeleteView(LoginRequiredMixin, DeleteView):
+class JournalEntryDeleteView(DeleteView):
     """
     Class-based view to show the Journal Entry delete template
     """
@@ -94,11 +50,3 @@ class JournalEntryDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'journal/journalentry-delete.html'
     model = models.JournalEntry
     success_url = reverse_lazy('journal-journalentry-list')
-
-    def get_queryset(self):
-        """
-        Limit the object to that of the logged in user only
-        """
-        return models.JournalEntry.objects.filter(
-            user=self.request.user
-        )

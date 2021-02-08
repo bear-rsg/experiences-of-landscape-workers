@@ -2,40 +2,7 @@
 {% load static %}
 
 {% block main %}
-    
-    <section id="section-welcome-banner">
-        <h2>Experiences of Landscape Workers</h2>
-    </section>
-
-    <h2>Welcome</h2>
-    <section>
-        <p>Welcome to the Experiences of Landscape Workers website.</p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-    </section>
-
-    <h2>Using the Website</h2>
-    <section>
-        <p>
-            The Experience of Landscape website offers some core features:
-        </p>
-        <ul>
-            <li>To access the main functionality of the website you'll need to <a href="{% url 'login' %}">log into your account</a></li>
-            <li>If you don't yet have an account, you'll need to <a href="{% url 'account-create' %}">create one</a></li>
-            <li>Once logged in you'll be able to share an experience by <a href="{% url 'journal-journalentry-create' %}">adding a new entry to your journal</a></li>
-            <li>You can also read, update, and delete your <a href="{% url 'journal-journalentry-list' %}">existing journal entries</a></li>
-        </ul>
-        
-    </section>
-
-    <h2>Support</h2>
-    <section>
-        <p>
-            If you require support to access and use this website, or if you'd like to report any issues, please email <a href="mailto:j.kidwell@bham.ac.uk?subject=Experiences of Landscape Workers website">j.kidwell@bham.ac.uk</a>
-        </p>
-    </section>
+    <h1>Welcome</h1>
+    <p>Content to be added...</p>
+    <a href="{% url 'login' %}">Login</a>
 {% endblock %}
