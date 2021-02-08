@@ -15,12 +15,12 @@ class JournalEntryListView(LoginRequiredMixin, ListView):
     paginate_by = 30
 
     def get_queryset(self):
-        
+
         # Limit the objects to that of the logged in user only
         queryset = models.JournalEntry.objects.filter(
             user=self.request.user
         ).order_by('-meta_created_datetime')
-    
+
         # Filter based on search (if provided)
         search = self.request.GET.get('search', '')
         if search != '':
@@ -29,7 +29,7 @@ class JournalEntryListView(LoginRequiredMixin, ListView):
                 Q(title__contains=search) |
                 Q(entry_text__contains=search)
             )
-        
+
         return queryset
 
 
