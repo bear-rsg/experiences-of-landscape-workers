@@ -3,8 +3,8 @@
 
 {% block main %}
 
-	<section>
-		<h3>Login</h3>
+    <h2>Login</h2>
+	<section>	
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
@@ -13,8 +13,8 @@
 		</form>
 	</section>
 
+    <h2>Create an account</h2>
 	<section>
-		<h3>Create an account</h3>
 		<div>
 			Don't have an account yet? No problem, you can quickly <a href="/">Create an account</a>
 		</div>
