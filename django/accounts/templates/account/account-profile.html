@@ -3,9 +3,79 @@
 
 {% block main %}
 
-	{# Content to include if the user IS logged in #}
-	{% include "account/pagesections/account-isauthenticated.html" %}
-	{# Content to include if the user IS NOT logged in #}
-	{% include "account/pagesections/account-isnotauthenticated.html" %}
+	{# if the user IS logged in #}
+    {% if user.is_authenticated %}
+
+        <h2>My Details</h2>
+        <section>
+            <div id="account-details">
+
+                {% if user.username %}
+                    <div class="account-detail">
+                        <label>Username:</label>{{ user.username }}
+                    </div>
+                {% endif %}
+
+                {% if user.first_name or user.last_name %}
+                    <div class="account-detail">
+                        <label>Name:</label>{{ user.title }} {{ user.first_name }} {{ user.last_name }}
+                    </div>
+                {% endif %}
+
+                {% if user.email %}
+                    <div class="account-detail">
+                        <label>Email:</label>{{ user.email }}
+                    </div>
+                {% endif %}
+
+                {% if user.role %}
+                    <div class="account-detail">
+                        <label>Role:</label>{{ user.role }}
+                    </div>
+                {% endif %}
+
+                {% if user.date_joined %}
+                    <div class="account-detail">
+                        <label>Date joined:</label>{{ user.date_joined }}
+                    </div>
+                {% endif %}
+                
+                {% if user.last_login %}
+                    <div class="account-detail">
+                        <label>Last logged in:</label>{{ user.last_login }}
+                    </div>
+                {% endif %}
+
+            </div>
+        </section>
+
+        <h2>Update Details</h2>
+        <section>
+            <p>
+                If you'd like to update your details, please email <a href="mailto:j.kidwell@bham.ac.uk?subject=Experiences of Landscape Workers website: Change Account Details">j.kidwell@bham.ac.uk</a>
+            </p>
+        </section>
+
+        <h2>Logout</h2>
+        <section>
+            <p>
+                <a href="{% url 'logout' %}">Click here</a> to logout of your account
+            </p>
+        </section>
+        
+    {% endif %}
+
+    {# if the user IS NOT logged in #}
+    {% if user.is_authenticated == False %}
+    
+        <h2>Not logged in</h2>
+        <section>
+            <p>It doesn't look like you're logged in.</p>
+            <p>
+                To view your account details, please either: <a href="{% url 'login' %}#main">Login</a> or <a href="{% url 'account_create' %}#main">Create an account</a>
+            </p>
+        </section>
+    
+    {% endif %}
 
 {% endblock %}
