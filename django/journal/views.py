@@ -56,7 +56,7 @@ class JournalEntryCreateView(LoginRequiredMixin, CreateView):
     """
 
     template_name = 'journal/journalentry-create.html'
-    fields = ['title', 'entry_text']
+    fields = ['entry_text', 'entry_image']
     model = models.JournalEntry
 
     def form_valid(self, form):
@@ -74,7 +74,7 @@ class JournalEntryUpdateView(LoginRequiredMixin, UpdateView):
     """
 
     template_name = 'journal/journalentry-update.html'
-    fields = ['title', 'entry_text']
+    fields = ['entry_text', 'entry_image']
     model = models.JournalEntry
 
     def get_queryset(self):

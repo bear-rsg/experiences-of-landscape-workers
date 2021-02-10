@@ -13,6 +13,11 @@
         <section>
             <div class="journalentry-detail-title">{{ object.title }}</div>
             <div class="journalentry-detail-text">{{ object.entry_text|linebreaks }}</div>
+            {% if object.entry_image %}
+                <div class="journalentry-detail-image">
+                    <a href="{{ object.entry_image.url }}"><img src="{{ object.entry_image.url }}" alt="{{ object.entry_text|truncatechars:50 }}"></a>
+                </div>
+            {% endif %}
         </section>
 
         <div id="journalentry-detail-actions">
