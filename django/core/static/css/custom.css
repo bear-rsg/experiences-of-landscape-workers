@@ -23,7 +23,7 @@ hr {
 
 h1 {
     font-size: 0.7em;
-    visibility: hidden;
+    /* visibility: hidden; */
     margin: 0;
     padding: 0;
 }
