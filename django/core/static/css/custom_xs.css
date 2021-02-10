@@ -42,6 +42,11 @@
         width: 100%;
     }
 
+    .journalentry-list-item-image img,
+    .journalentry-detail-image img {
+        width: 100%;
+    }
+
     #journalentry-detail-actions {
         text-align: center;
         margin-top: 2em;

@@ -37,8 +37,9 @@ class JournalEntry(BaseModel):
     """
     This model is for recording end users' experiences
     """
-    title = models.CharField(max_length=200)
-    entry_text = models.TextField(blank=True, null=True)
+    title = models.DateTimeField(auto_now_add=True)
+    entry_text = models.TextField()
+    entry_image = models.ImageField(upload_to='journalentryimages', blank=True, null=True)
     # Many to Many relationship fields
     journal_entry_tag = models.ManyToManyField(JournalEntryTag, blank=True)
     # Foreign key fields
@@ -48,23 +49,10 @@ class JournalEntry(BaseModel):
         return reverse('journal-journalentry-detail', args=[str(self.id)])
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
     class Meta:
         verbose_name_plural = "Journal entries"
-
-
-class JournalEntryImage(BaseModel):
-    """
-    This model allows end users to upload multiple images for each journal entry
-    """
-    name = models.CharField(max_length=50, blank=True, null=True)
-    image = models.ImageField(upload_to='journalentryimages')
-    # Foreign key fields
-    journal_entry = models.ForeignKey(JournalEntry, on_delete=models.PROTECT)
-
-    def __str__(self):
-        return self.name if self.name is not None else str(self.image)
 
 
 class JournalEntryAnalysisCode(BaseModel):

@@ -23,17 +23,22 @@
                 <div class="journalentry-list-item-text">
                     {{ object.entry_text|truncatechars:250 }}
                 </div>
+                {% if object.entry_image %}
+                    <div class="journalentry-list-item-image">
+                        <img src="{{ object.entry_image.url }}" alt="{{ object.entry_text|truncatechars:50 }}">
+                    </div>
+                {% endif %}
             </section>
         </a>
         {% empty %}
-            <section class="journalentry-list-empty">
+            <div class="journalentry-list-empty">
                 <strong>
                     No entries found.
                 </strong>
                 <p>
                     To get started, <a href="{% url 'journal-journalentry-create' %}">add a new entry</a> to your journal
                 </p>
-            </section>
+            </div>
         {% endfor %}
     
     </div>

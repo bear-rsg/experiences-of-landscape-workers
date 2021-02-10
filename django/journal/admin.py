@@ -19,20 +19,10 @@ class JournalEntryAdminView(admin.ModelAdmin):
     """
     Customise the Journal Entry section of the Django admin
     """
-    list_display = ('title', 'entry_text', 'user', 'admin_published', 'meta_lastupdated_datetime')
+    list_display = ('title', 'entry_text', 'entry_image', 'user', 'admin_published', 'meta_lastupdated_datetime')
     list_filter = ('admin_published', 'user')
     search_fields = ('title', 'entry_text')
     ordering = ('-meta_lastupdated_datetime', 'title')
-
-
-class JournalEntryImageAdminView(admin.ModelAdmin):
-    """
-    Customise the Journal Entry Images section of the Django admin
-    """
-    list_display = ('name', 'image', 'journal_entry', 'admin_published', 'meta_lastupdated_datetime')
-    list_filter = ('admin_published',)
-    search_fields = ('name',)
-    ordering = ('-meta_lastupdated_datetime', 'name')
 
 
 class JournalEntryAnalysisCodeAdminView(admin.ModelAdmin):
@@ -58,6 +48,5 @@ class JournalEntryAnalysisAdminView(admin.ModelAdmin):
 # Register classes
 admin.site.register(models.JournalEntryTag, JournalEntryTagAdminView)
 admin.site.register(models.JournalEntry, JournalEntryAdminView)
-admin.site.register(models.JournalEntryImage, JournalEntryImageAdminView)
 admin.site.register(models.JournalEntryAnalysisCode, JournalEntryAnalysisCodeAdminView)
 admin.site.register(models.JournalEntryAnalysis, JournalEntryAnalysisAdminView)
