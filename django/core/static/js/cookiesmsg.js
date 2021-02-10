@@ -42,7 +42,7 @@ This website uses cookies. By using this website, you accept our use of cookies.
 // Add event listener for 'accept' button to set the cookie and hide the message
 try {
     document.getElementById("cookie-message-popup-accept").addEventListener("click", function () {
-        document.cookie = "cookieMessageApprove=1; expires=Mon, 31 Dec 2040 23:59:59 GMT";
+        document.cookie = "cookieMessageApprove=1; expires=Mon, 31 Dec 2040 23:59:59 GMT; path=/; Secure;";
         document.getElementById("cookie-message-popup").style.display = "none";
     });
 } catch (ignore) {
