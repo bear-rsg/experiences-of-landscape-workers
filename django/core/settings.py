@@ -4,7 +4,7 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'core/templates')
-
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'core/static/js', 'serviceworker.js')
 
 # Application definition
 
@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     # 3rd party apps
     'rest_framework',
+    'pwa',
     # Custom apps
     'accounts',
     'general',
@@ -54,6 +55,39 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+
+
+# PWA
+
+PWA_APP_NAME = 'experiences-of-landscape-workers'
+PWA_APP_DESCRIPTION = "Experiences of Landscape Workers"
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+	{
+		'src': 'static/images/pwa/icon-160.png',
+		'sizes': '160x160'
+	}
+]
+PWA_APP_ICONS_APPLE = [
+	{
+		'src': 'static/images/pwa/icon-160.png',
+		'sizes': '160x160'
+	}
+]
+PWA_APP_SPLASH_SCREEN = [
+	{
+		'src': 'static/images/pwa/icon-160.png',
+		'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+	}
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
 
 
 # Password validation
