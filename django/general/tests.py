@@ -13,7 +13,7 @@ class TestWelcomeView(TestCase):
         url = reverse('welcome')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '<h2>Welcome</h2>')
+        self.assertContains(response, '<h1>Welcome</h1>')
 
     def test_welcome_nonempty_get(self):
         """
@@ -22,7 +22,7 @@ class TestWelcomeView(TestCase):
         url = reverse('welcome')
         response = self.client.get(url, {'nonsense': 'aaa'})
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, '<h2>Welcome</h2>')
+        self.assertContains(response, '<h1>Welcome</h1>')
 
 
 class TestCookiesView(TestCase):
