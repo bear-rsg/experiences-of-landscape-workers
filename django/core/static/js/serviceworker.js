@@ -1,10 +1,10 @@
 var staticCacheName = "django-pwa-v" + new Date().getTime();
 var filesToCache = [
-    '/offline/',
-    '/about',
+    '',
     '/',
-    '/people/',
-    '/blog/'
+    '/offline/',
+    '/journal/',
+    '/accounts/profile/'
 ];
 
 // Cache on install

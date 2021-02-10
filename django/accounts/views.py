@@ -1,9 +1,10 @@
 from django.views.generic import (TemplateView, CreateView)
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm
 
 
-class AccountProfileTemplateView(TemplateView):
+class AccountProfileTemplateView(LoginRequiredMixin, TemplateView):
     """
     Class-based view to show the account profile template
     """
