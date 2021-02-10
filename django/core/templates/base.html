@@ -11,7 +11,7 @@
         <!--Meta-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Experiences of Landscape Workers research project at the University of Birmingham">
         <meta name="keywords" content="experiences of landscape workers, landscape, experience, journal, research, jeremy kidwell, humanities, art, birmingham, university, university of birmingham, college of arts and law">
         <meta name="author" content="University of Birmingham">
@@ -41,12 +41,10 @@
     </head>
 
     <body>
-
+        
         <!-- Navigation -->
         <nav>
             <div class="container-fluid">
-
-                <h1 class="hidden">Experiences of Landscape Workers</h1>
 
                 <ul>
                     <li class="nav-item{% if request.path == "/" %} active{% endif %}">
@@ -95,7 +93,7 @@
         </nav>
 
         <!-- Main -->
-        <main>
+        <main id="main">
             <div id="main-content" class="container">
                 {% block main %}
                 {% endblock %}
@@ -122,22 +120,18 @@
                 <p>
                     © University of Birmingham {% now "Y" %}
                 </p>
-
             </div>
         </footer>
 
         <!-- JavaScript: 3rd party -->
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <!-- Cookie jQuery plugin-->
-        <script src="{% static 'js/jquery.cookie.js' %}"></script>
         <!-- Popper.js (needed for bootstrap) -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <!-- Bootstrap JS -->
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
         <!-- JavaScript: Custom -->
-        <script src="{% static 'js/bundle.js' %}"></script>
         <script src="{% static 'js/cookiesmsg.js' %}"></script>
 
     </body>

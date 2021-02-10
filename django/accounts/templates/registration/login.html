@@ -3,12 +3,12 @@
 
 {% block main %}
 
-    <h2>Login</h2>
+    <h1>Login</h1>
 	<section>	
 		<form method="post">
 			{% csrf_token %}
 			{{ form.as_p }}
-			<a href="{% url 'password_reset' %}#main">Forgot password?</a>
+			<a href="{% url 'password_reset' %}">Forgot password?</a>
 			<button type="submit">Login</button>
 		</form>
 	</section>
@@ -16,7 +16,7 @@
     <h2>Create an account</h2>
 	<section>
 		<div>
-			Don't have an account yet? No problem, you can quickly <a href="/">Create an account</a>
+			Don't have an account yet? No problem, you can <a href="{% url 'account-create' %}">create an account</a>.
 		</div>
 	</section>
 

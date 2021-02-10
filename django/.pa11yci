@@ -8,6 +8,7 @@
     "urls": [
         "http://127.0.0.1:8000/",
         "http://127.0.0.1:8000/cookies",
-        "http://127.0.0.1:8000/accessibility"
+        "http://127.0.0.1:8000/accounts/login/",
+        "http://127.0.0.1:8000/accounts/create/"
     ]
 }
