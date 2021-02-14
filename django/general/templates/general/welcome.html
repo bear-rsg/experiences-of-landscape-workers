@@ -38,4 +38,17 @@
             If you require support to access and use this website, or if you'd like to report any issues, please email <a href="mailto:j.kidwell@bham.ac.uk?subject=Experiences of Landscape Workers website">j.kidwell@bham.ac.uk</a>
         </p>
     </section>
+
+    
+
+    <script>
+        $( document ).ready(function() {
+
+            html_drafts = `<a href="{% url 'journal-journalentry-drafts' %}">Tap here to complete your drafts</a>`
+
+            $('#main-alerts').html(html_drafts).slideDown('fast');
+            
+        });
+    </script>
+
 {% endblock %}

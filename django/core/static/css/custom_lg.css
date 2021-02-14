@@ -22,6 +22,10 @@
 
     /* ---------- Main ---------- */
 
+    #main-alerts {
+        bottom: -5em; /* So never shows on large devices */
+    }
+
     section {
         padding: 2em;
     }

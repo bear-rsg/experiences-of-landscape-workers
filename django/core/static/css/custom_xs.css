@@ -23,6 +23,10 @@
 
     /* ---------- Main ---------- */
 
+    #main-alerts {
+        bottom: 3em;
+    }
+
     section {
         padding: 1.3em;
     }

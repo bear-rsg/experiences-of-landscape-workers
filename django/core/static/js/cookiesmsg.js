@@ -23,8 +23,6 @@ function getCookie(name) {
 
 // Show a message about cookies to user if they have not yet agreed
 
-document.cookie = '';
-
 // If user hasn't yet agreed to cookies
 if (getCookie('cookieMessageApprove') !== '1') {
 

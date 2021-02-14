@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    
+    <div class="container">
+
+        <div id="drafts">
+            
+        </div>
+
+        <h1>Create a Draft</h1>
+        <section>
+
+            <p>
+                <label for="id_entry_text">Entry text:</label>
+                <textarea name="entry_text" cols="40" rows="10" required="" id="id_entry_text"></textarea>
+            </p>
+
+            <button id="save-draft" type="submit" class="btn btn-primary">Save Draft</button>
+        </section>
+
+        
+        
+
+    </div>
+
+    <script>
+        $( document ).ready(function() {
+            
+            // if (navigator.onLine) {
+            //     console.log('ye plenty of dat web');
+            // } else {
+            //     console.log('no internet sun');
+            // }
+
+            if(1) {
+                html = `<h2>Drafts</h2>
+<section>
+    <p>Please complete and submit these drafts:</p>
+    <ol>
+        <li>kdjnkdjnfg...</li>
+        <li>pawokwdmksd...</li>
+        <li>ppowwiwiwinnm...</li>
+    </ol>
+</section>`;
+
+                $('#drafts').html(html);
+            }
+            
+        });
+    </script>
+
+{% endblock %}

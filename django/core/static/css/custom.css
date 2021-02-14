@@ -199,6 +199,21 @@ nav ul {
 
 /* ---------- Main ---------- */
 
+#main-alerts {
+    display: none;
+    position: fixed;
+    background: #005763;
+    color: white;
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+}
+#main-alerts a,
+#main-alerts a:hover,
+#main-alerts a:visited {
+    color: white;
+}
+
 section {
     background: white;
     display: block;

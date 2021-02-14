@@ -1,4 +1,4 @@
-from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView)
+from django.views.generic import (ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView)
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
@@ -102,3 +102,11 @@ class JournalEntryDeleteView(LoginRequiredMixin, DeleteView):
         return models.JournalEntry.objects.filter(
             user=self.request.user
         )
+
+
+class JournalEntryDraftsTemplateView(TemplateView):
+    """
+    Class-based view to show the Journal Entry drafts template
+    """
+
+    template_name = 'journal/journalentry-drafts.html'
