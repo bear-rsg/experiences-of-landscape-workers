@@ -25,6 +25,9 @@
 
     </div>
 
+          <!-- Include Dexie -->
+          <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
     <script>
         $( document ).ready(function() {
             
@@ -34,19 +37,93 @@
             //     console.log('no internet sun');
             // }
 
-            if(1) {
-                html = `<h2>Drafts</h2>
+
+
+
+      
+
+          //
+          // Define your database
+          //
+          var db = new Dexie("db_drafts");
+          db.version(1).stores({
+              drafts: 'name,text'
+          });
+
+          //
+          // Put some data into it
+          //
+          
+          d = Date.now();
+          db.drafts.put({name: d, text: "this is my draft experiencex"}).then (function(){
+              return db.drafts.get(d);
+          }).then(function (draft) {
+            
+
+            console.log(String(new Date(d)).substring(0,24));
+
+            db.drafts.each(draft => console.log(draft));
+              
+            console.log(draft.name + " has text size " + draft.text);
+
+          }).catch(function(error) {
+             //
+             // Finally don't forget to catch any error
+             // that could have happened anywhere in the
+             // code blocks above.
+             //
+             alert ("Ooops: " + error);
+          });
+
+
+
+          $('#save-draft').on('click', function(){
+            dt = Date.now();
+            var txt = $.trim($('#id_entry_text').val());
+            console.log(txt);
+            if (txt !== "") {
+                // Add to db
+                db.drafts.put({name: dt, text: txt}).then (function(){
+                    return db.drafts.get(dt);
+                }).then(function(draft) {
+                    alert('Draft saved')
+                });
+            } else {
+                alert('Draft is empty')
+            }
+          });
+
+          db.drafts.count().then(function(c){
+              console.log(c);
+              if(c > 0) {
+                  items = '';
+
+                  db.drafts.each(function(draft) {
+                      items += '<li>' + draft.text + '</li>';
+                  }).then(function() {
+                    html = `<h2>Drafts</h2>
 <section>
     <p>Please complete and submit these drafts:</p>
-    <ol>
-        <li>kdjnkdjnfg...</li>
-        <li>pawokwdmksd...</li>
-        <li>ppowwiwiwinnm...</li>
-    </ol>
+    <ol>` + items + `</ol>
 </section>`;
 
                 $('#drafts').html(html);
+                console.log(items)
+                  });
+
+                
+
+                
             }
+         });
+
+          
+
+
+
+
+
+
             
         });
     </script>

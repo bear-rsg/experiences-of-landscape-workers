@@ -21,13 +21,14 @@
     <h2>Using the Website</h2>
     <section>
         <p>
-            The Experience of Landscape website offers some core features:
+            The Experience of Landscape Workers website offers some core features:
         </p>
         <ul>
             <li>To access the main functionality of the website you'll need to <a href="{% url 'login' %}">log into your account</a></li>
             <li>If you don't yet have an account, you'll need to <a href="{% url 'account-create' %}">create one</a></li>
             <li>Once logged in you'll be able to share an experience by <a href="{% url 'journal-journalentry-create' %}">adding a new entry to your journal</a></li>
             <li>You can also read, update, and delete your <a href="{% url 'journal-journalentry-list' %}">existing journal entries</a></li>
+            <li>If you're offline or want to make a rough draft of a journal entry to finish later, you can <a href="{% url 'journal-journalentry-drafts' %}">write drafts</a></li>
         </ul>
         
     </section>
