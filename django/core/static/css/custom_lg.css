@@ -23,7 +23,8 @@
     /* ---------- Main ---------- */
 
     #main-alerts {
-        bottom: -5em; /* So never shows on large devices */
+        bottom: auto;
+        top: 3em;
     }
 
     section {

@@ -3,129 +3,43 @@
 
 {% block main %}
     
-    <div class="container">
 
+
+    <h1>Drafts</h1>
+    <section>
+        <p>
+            Drafts allow you to write and store in-progress journal entries locally on your device, before sending them to us.
+        </p>
+        <p>
+            Drafts are ideal if you're offline (e.g. if you don't have a stable internet connection whilst in the field) or if you'd like to work on your journal entry at your own pace before submitting it to us.
+        </p>
+        <p>
+            You can read, edit, and delete your drafts at any time. When you're finished with your draft (and when you're online) tap the 'Add To Journal' button to move your draft into the form to create a new journal entry. You can then prepare your journal entry further (e.g. add a picture) and then submit it to us over the internet.
+        </p>
+    </section>
+
+
+    <h2 id="drafts-section">My Drafts</h2>
+    <section>
         <div id="drafts">
-            
+            <p>You have no drafts</p>
         </div>
+    </section>
 
-        <h1>Create a Draft</h1>
-        <section>
+    <h2 id="create-draft">Create a Draft</h2>
+    <section>
 
-            <p>
-                <label for="id_entry_text">Entry text:</label>
-                <textarea name="entry_text" cols="40" rows="10" required="" id="id_entry_text"></textarea>
-            </p>
+        <p>
+            <label for="id_entry_text">Draft text:</label>
+            <textarea name="entry_text" cols="40" rows="10" required="" id="id_entry_text"></textarea>
+        </p>
 
-            <button id="save-draft" type="submit" class="btn btn-primary">Save Draft</button>
-        </section>
+        <button id="save-draft" type="submit" class="btn btn-primary"><i class="far fa-save"></i> Save Draft</button>
 
-        
-        
+        <button id="add-to-journal" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add To Journal</button>
 
-    </div>
+        <button id="delete-draft" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
 
-          <!-- Include Dexie -->
-          <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-
-    <script>
-        $( document ).ready(function() {
-            
-            // if (navigator.onLine) {
-            //     console.log('ye plenty of dat web');
-            // } else {
-            //     console.log('no internet sun');
-            // }
-
-
-
-
-      
-
-          //
-          // Define your database
-          //
-          var db = new Dexie("db_drafts");
-          db.version(1).stores({
-              drafts: 'name,text'
-          });
-
-          //
-          // Put some data into it
-          //
-          
-          d = Date.now();
-          db.drafts.put({name: d, text: "this is my draft experiencex"}).then (function(){
-              return db.drafts.get(d);
-          }).then(function (draft) {
-            
-
-            console.log(String(new Date(d)).substring(0,24));
-
-            db.drafts.each(draft => console.log(draft));
-              
-            console.log(draft.name + " has text size " + draft.text);
-
-          }).catch(function(error) {
-             //
-             // Finally don't forget to catch any error
-             // that could have happened anywhere in the
-             // code blocks above.
-             //
-             alert ("Ooops: " + error);
-          });
-
-
-
-          $('#save-draft').on('click', function(){
-            dt = Date.now();
-            var txt = $.trim($('#id_entry_text').val());
-            console.log(txt);
-            if (txt !== "") {
-                // Add to db
-                db.drafts.put({name: dt, text: txt}).then (function(){
-                    return db.drafts.get(dt);
-                }).then(function(draft) {
-                    alert('Draft saved')
-                });
-            } else {
-                alert('Draft is empty')
-            }
-          });
-
-          db.drafts.count().then(function(c){
-              console.log(c);
-              if(c > 0) {
-                  items = '';
-
-                  db.drafts.each(function(draft) {
-                      items += '<li>' + draft.text + '</li>';
-                  }).then(function() {
-                    html = `<h2>Drafts</h2>
-<section>
-    <p>Please complete and submit these drafts:</p>
-    <ol>` + items + `</ol>
-</section>`;
-
-                $('#drafts').html(html);
-                console.log(items)
-                  });
-
-                
-
-                
-            }
-         });
-
-          
-
-
-
-
-
-
-            
-        });
-    </script>
+    </section>
 
 {% endblock %}
