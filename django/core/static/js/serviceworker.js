@@ -3,7 +3,27 @@ var filesToCache = [
     '/',
     '/cookies/',
     '/offline/',
-    '/journal/drafts/'
+    '/journal/',
+    '/journal/drafts/',
+    '/accounts/profile/',
+    
+    'static/images/favicon.png',
+    'static/images/pwa/icon-160.png',
+    'static/images/pwa/icon-512.png',
+    
+    '/static/js/bootstrap.min.js',
+    '/static/js/bootstrap.min.js.map',
+    '/static/js/jquery-3.5.1.min.js',
+    '/static/js/dexie.min.js',
+    '/static/js/main.js',
+
+    '/static/css/bootstrap.min.css',
+    '/static/css/bootstrap.min.css.map',
+    '/static/css/custom.css',
+    '/static/css/custom_xs.css',
+    '/static/css/custom_lg.css',
+
+    'manifest.json'
 ];
 
 // Cache on install
