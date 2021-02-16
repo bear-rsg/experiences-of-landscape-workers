@@ -12,7 +12,6 @@ class JournalEntryListView(LoginRequiredMixin, ListView):
 
     template_name = 'journal/journalentry-list.html'
     model = models.JournalEntry
-    paginate_by = 30
 
     def get_queryset(self):
 
