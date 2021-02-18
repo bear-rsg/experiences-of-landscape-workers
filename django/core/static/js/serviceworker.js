@@ -15,7 +15,7 @@ var filesToCache = [
     '/static/js/bootstrap.min.js.map',
     '/static/js/jquery-3.5.1.min.js',
     '/static/js/dexie.min.js',
-    '/static/js/main.js',
+    '/static/js/drafts.js',
 
     '/static/css/bootstrap.min.css',
     '/static/css/bootstrap.min.css.map',
