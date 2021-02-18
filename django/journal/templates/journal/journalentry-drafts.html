@@ -3,25 +3,22 @@
 
 {% block main %}
     
-
-
     <h1>Drafts</h1>
     <section>
         <p>
             Drafts allow you to write and store in-progress journal entries locally on your device, before sending them to us.
         </p>
         <p>
-            Drafts are ideal if you're offline (e.g. if you don't have a stable internet connection whilst in the field) or if you'd like to work on your journal entry at your own pace before submitting it to us.
+            Drafts are ideal if you don't have an internet connection or if you'd like to work on your journal entry at your own pace before submitting it to us.
         </p>
         <p>
             You can read, edit, and delete your drafts at any time. When you're finished with your draft (and when you're online) tap the 'Add To Journal' button to move your draft into the form to create a new journal entry. You can then prepare your journal entry further (e.g. add a picture) and then submit it to us over the internet.
         </p>
     </section>
 
-
-    <h2 id="drafts-section">My Drafts</h2>
+    <h2 id="mydrafts-title">My Drafts</h2>
     <section>
-        <div id="drafts">
+        <div id="mydrafts">
             <p>
                 There are no drafts to show
             </p>
@@ -31,20 +28,13 @@
         </div>
     </section>
 
-    <h2 id="create-draft">Create a Draft</h2>
+    <h2 id="drafteditor-title">Draft Editor</h2>
     <section>
-
         <p>
-            <label for="id_entry_text">Draft text:</label>
-            <textarea name="entry_text" cols="40" rows="10" required="" id="id_entry_text"></textarea>
+            <label for="drafteditor-text" id="drafteditor-text-label">Create a draft:</label>
+            <textarea name="drafteditor-title" cols="40" rows="10" id="drafteditor-text"></textarea>
         </p>
-
-        <button id="save-draft" type="submit" class="btn btn-primary"><i class="far fa-save"></i> Save Draft</button>
-
-        <button id="add-to-journal" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add To Journal</button>
-
-        <button id="delete-draft" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
-
+        <div id="drafteditor-buttons"></div>
     </section>
 
 {% endblock %}
