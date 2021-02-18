@@ -18,6 +18,9 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 
     # Django admin dashboard's urls
-    path('dashboard/', admin.site.urls)
+    path('dashboard/', admin.site.urls),
+
+    # Django PWA (progressive web app) urls
+    path('', include('pwa.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -128,7 +128,7 @@ input[type='checkbox']:checked {
     border: 2px solid #005763;
 }
 
-button[type='submit'] {
+button {
     display: block;
     width: 10em;
     max-width: 100%;
@@ -199,6 +199,21 @@ nav ul {
 
 /* ---------- Main ---------- */
 
+#main-alerts {
+    display: none;
+    position: fixed;
+    background: #005763;
+    color: white;
+    width: 100%;
+    padding: 1em;
+    text-align: center;
+}
+#main-alerts a,
+#main-alerts a:hover,
+#main-alerts a:visited {
+    color: white;
+}
+
 section {
     background: white;
     display: block;
@@ -207,7 +222,7 @@ section {
 }
 
 section p {
-    margin-bottom: 0;
+    margin: 0.5em 0em;
 }
 
 /* ---------- Welcome ---------- */
@@ -300,6 +315,22 @@ a.journalentry-list-item:hover {
     margin-top: 2em;
 }
 
+.drafts-list-item {
+    margin-top: 2em;
+}
+
+.drafts-list-item:first-child {
+    margin-top: 0;
+}
+
+.drafts-list-item a {
+    display: block;
+    font-size: 1.3em;
+}
+
+.drafts-list-item p {
+    margin-top: 0.2em;
+}
 
 /* ---------- Account ---------- */
 

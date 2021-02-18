@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    
+    <h1>Drafts</h1>
+    <section>
+        <p>
+            Drafts allow you to write and store in-progress journal entries locally on your device, before sending them to us.
+        </p>
+        <p>
+            Drafts are ideal if you don't have an internet connection or if you'd like to work on your journal entry at your own pace before submitting it to us.
+        </p>
+        <p>
+            You can read, edit, and delete your drafts at any time. When you're finished with your draft (and when you're online) tap the 'Add To Journal' button to move your draft into the form to create a new journal entry. You can then prepare your journal entry further (e.g. add a picture) and then submit it to us over the internet.
+        </p>
+    </section>
+
+    <h2 id="mydrafts-title">My Drafts</h2>
+    <section>
+        <div id="mydrafts">
+            <p>
+                There are no drafts to show
+            </p>
+            <p>
+                You can <a href="#create-draft">create a draft</a> below
+            </p>
+        </div>
+    </section>
+
+    <h2 id="drafteditor-title">Draft Editor</h2>
+    <section>
+        <p>
+            <label for="drafteditor-text" id="drafteditor-text-label">Create a draft:</label>
+            <textarea name="drafteditor-title" cols="40" rows="10" id="drafteditor-text"></textarea>
+        </p>
+        <div id="drafteditor-buttons"></div>
+    </section>
+
+{% endblock %}

@@ -22,6 +22,11 @@
 
     /* ---------- Main ---------- */
 
+    #main-alerts {
+        bottom: auto;
+        top: 3em;
+    }
+
     section {
         padding: 2em;
     }
