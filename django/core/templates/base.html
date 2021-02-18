@@ -1,6 +1,7 @@
 <!doctype html>
 
 {% load static %}
+{% load pwa %}
 
 <html lang="en">
 
@@ -8,13 +9,15 @@
         
         <title>Experiences of Landscape Workers</title>
 
-        <!--Meta-->
+        <!-- Meta -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Experiences of Landscape Workers research project at the University of Birmingham">
         <meta name="keywords" content="experiences of landscape workers, landscape, experience, journal, research, jeremy kidwell, humanities, art, birmingham, university, university of birmingham, college of arts and law">
         <meta name="author" content="University of Birmingham">
+        <!-- PWA Meta -->
+        {% progressive_web_app_meta %}
 
         <!-- Fonts -->
         <!-- Roboto -->
@@ -22,18 +25,28 @@
 
         <!-- CSS -->
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
         <!-- Font Awesome -->
         <link rel="stylesheet" 
             href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" 
             integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" 
             crossorigin="anonymous">
-
         <!-- Custom -->
         <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/custom_xs.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/custom_lg.css' %}">
+
+        <!-- JavaScript: 3rd party -->
+        <!-- jQuery -->
+        <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+        <!-- Bootstrap JS -->
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <!-- Dexie (wrapper for IndexedDB, needed for local storage of drafts) -->
+        <script src="{% static 'js/dexie.min.js' %}"></script>
+
+        <!-- JavaScript: Custom -->
+        <script src="{% static 'js/drafts.js' %}"></script>
+        <script src="{% static 'js/cookiesmsg.js' %}"></script>
 
         <!--Set the favicon-->
         <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
@@ -55,7 +68,7 @@
                     </li>
 
                     {% if user.is_authenticated %}
-                    <li class="nav-item{% if "/journal/" in request.path and "/create/" not in request.path %} active{% endif %}">
+                    <li class="nav-item{% if "/journal/" in request.path %} {% if "/create/" not in request.path and "/drafts/" not in request.path %} active{% endif %} {% endif %}">
                         <a href="{% url 'journal-journalentry-list' %}">
                             <i class="fas fa-book-open"></i>
                             <span class="nav-item-text">Journal</span>
@@ -63,7 +76,7 @@
                     </li>
                     <li class="nav-item{% if request.path == "/journal/create/" %} active{% endif %}">
                         <a href="{% url 'journal-journalentry-create' %}">
-                            <i class="fas fa-pen"></i>
+                            <i class="fas fa-plus-circle"></i>
                             <span class="nav-item-text">Add Entry</span>
                         </a>
                     </li>
@@ -73,13 +86,6 @@
                             <span class="nav-item-text">Profile</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{% url 'logout' %}">
-                            <i class="fas fa-sign-out-alt"></i>
-                            <span class="nav-item-text">Logout</span>
-                        </a>
-                    </li>
-
                     {% else %}
                     <li class="nav-item{% if request.path == "/accounts/login/" %} active{% endif %}">
                         <a href="{% url 'login' %}">
@@ -88,12 +94,21 @@
                         </a>
                     </li>
                     {% endif %}
+                    <li class="nav-item{% if request.path == "/journal/drafts/" %} active{% endif %}">
+                        <a href="{% url 'journal-journalentry-drafts' %}">
+                            <i class="fas fa-pen"></i>
+                            <span class="nav-item-text">Drafts</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
 
         <!-- Main -->
         <main id="main">
+            <!-- Alerts are delivered dynamically do this div -->
+            <div id="main-alerts"></div>
+            
             <div id="main-content" class="container">
                 {% block main %}
                 {% endblock %}
@@ -122,17 +137,6 @@
                 </p>
             </div>
         </footer>
-
-        <!-- JavaScript: 3rd party -->
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <!-- Popper.js (needed for bootstrap) -->
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-        <!-- JavaScript: Custom -->
-        <script src="{% static 'js/cookiesmsg.js' %}"></script>
 
     </body>
 
