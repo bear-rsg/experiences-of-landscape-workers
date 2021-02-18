@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+    <h1>Login</h1>
+	<section>	
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<a href="{% url 'password_reset' %}">Forgot password?</a>
+			<button type="submit">Login</button>
+		</form>
+	</section>
+
+    <h2>Create an account</h2>
+	<section>
+		<div>
+			Don't have an account yet? No problem, you can <a href="{% url 'account-create' %}">create an account</a>.
+		</div>
+	</section>
+
+{% endblock %}

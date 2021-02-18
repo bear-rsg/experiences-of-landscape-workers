@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    
+    <div class="container">
+
+        <h2>Sorry, there's been an error</h2>
+
+        {% include "snippets/error-content.html" %}
+
+        <div class="errorpage-code">
+            Error code: 500
+        </div>
+
+    </div>
+
+{% endblock %}

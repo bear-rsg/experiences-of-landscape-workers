@@ -1,0 +1,21 @@
+<div class="errorpage-content">
+    
+    {# Requires the path to be known to confirm it to the user #}
+    {% if request.path %}
+        <p>
+            We couldn't find anything at the location <span class="errorpage-path">{{ request.path }}</span>
+        </p>
+    {% endif %}
+    
+    <p>
+        To return to a working page, please click back in your browser or go to the home page.
+    </p>
+
+    {# Requires a path to be known in order to email admin #}
+    {% if request.path %}
+        <p>
+            If you'd like to report this error, please email Jeremy Kidwell at <a href="mailto:j.kidwell@bham.ac.uk?subject=Experiences of Landscape Workers website (Error)&body=I'd like to report an error at the location: ' {{ request.path }} ' on the Experiences of Landscape Workers website">j.kidwell@bham.ac.uk</a>
+        </p>
+    {% endif %}
+
+</div>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+    <h1>Delete Journal Entry</h1>
+    <section>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <label class="confirmation">
+                Deleting a journal entry is <span class="danger">permanent</span> and <span class="danger">cannot be undone</span>.
+                <br>
+                Are you sure you want to <span class="danger">permanently delete</span>:
+                <br>
+                <strong>{{ object }}</strong>
+            </label>
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Confirm</button>
+        </form>
+    </section>
+
+{% endblock %}

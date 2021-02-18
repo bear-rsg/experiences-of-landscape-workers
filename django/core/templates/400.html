@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    
+    <div class="container">
+
+        <h2>Sorry we don't understand that request</h2>
+
+        {% include "snippets/error-content.html" %}
+
+        <div class="errorpage-code">
+            Error code: 400
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+    
+    <div class="container">
+
+        <h2>You don't have permission to access this content</h2>
+
+        {% include "snippets/error-content.html" %}
+
+        <div class="errorpage-code">
+            Error code: 403
+        </div>
+
+    </div>
+
+{% endblock %}

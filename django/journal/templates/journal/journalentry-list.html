@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+    <div class="container-fluid">
+
+        <form action="" method="get">
+            <label for="journalentry-list-search" class="hidden">Search:</label>
+            <input type="text" id="journalentry-list-search" name="search" title="search" placeholder="Search">
+            <script>
+                var search = new URL(window.location.href).searchParams.get("search");
+                if(search) document.getElementById('journalentry-list-search').value = search;
+            </script>
+        </form>
+
+        <h1>My Journal</h1>
+
+        {% for object in object_list %}
+        <a class="journalentry-list-item" href="{% url 'journal-journalentry-detail' object.id %}">
+            <section>
+                <div class="journalentry-list-item-title">{{ object.title }}</div>
+                <div class="journalentry-list-item-text">
+                    {{ object.entry_text|truncatechars:250 }}
+                </div>
+                {% if object.entry_image %}
+                    <div class="journalentry-list-item-image">
+                        <img src="{{ object.entry_image.url }}" alt="{{ object.entry_text|truncatechars:50 }}">
+                    </div>
+                {% endif %}
+            </section>
+        </a>
+        {% empty %}
+            <div class="journalentry-list-empty">
+                <strong>
+                    No entries found.
+                </strong>
+                <p>
+                    To get started, <a href="{% url 'journal-journalentry-create' %}">add a new entry</a> to your journal
+                </p>
+            </div>
+        {% endfor %}
+    
+    </div>
+
+{% endblock %}
