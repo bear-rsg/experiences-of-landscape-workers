@@ -2,21 +2,8 @@
 {% load static %}
 
 {% block main %}
-    
-    <h1>Drafts</h1>
-    <section>
-        <p>
-            Drafts allow you to write and store in-progress journal entries locally on your device, before sending them to us.
-        </p>
-        <p>
-            Drafts are ideal if you don't have an internet connection or if you'd like to work on your journal entry at your own pace before submitting it to us.
-        </p>
-        <p>
-            You can read, edit, and delete your drafts at any time. When you're finished with your draft (and when you're online) tap the 'Add To Journal' button to move your draft into the form to create a new journal entry. You can then prepare your journal entry further (e.g. add a picture) and then submit it to us over the internet.
-        </p>
-    </section>
 
-    <h2 id="mydrafts-title">My Drafts</h2>
+    <h1 id="mydrafts-title">My Drafts</h1>
     <section>
         <div id="mydrafts">
             <p>
@@ -35,6 +22,22 @@
             <textarea name="drafteditor-title" cols="40" rows="10" id="drafteditor-text"></textarea>
         </p>
         <div id="drafteditor-buttons"></div>
+    </section>
+
+    <h2>Help</h2>
+    <section>
+        <p>
+            Drafts allow you to write and store in-progress journal entries locally on your device, before sending them to us.
+        </p>
+        <p>
+            Drafts are ideal if you don't have an internet connection or if you'd like to work on your journal entry at your own pace before submitting it to us.
+        </p>
+        <p>
+            You can read, edit, and delete your drafts at any time. When you're finished with your draft (and when you're online) tap the 'Add To Journal' button to move your draft into the form to create a new journal entry. You can then prepare your journal entry further (e.g. add a picture) and then submit it to us over the internet.
+        </p>
+        <p>
+            For further help with your drafts, please <a href="mailto:j.kidwell@bham.ac.uk?subject=Experiences of Landscape Workers: Not Received Password Reset Email">contact us</a>.
+        </p>
     </section>
 
 {% endblock %}

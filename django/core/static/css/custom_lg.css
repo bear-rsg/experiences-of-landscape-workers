@@ -23,8 +23,7 @@
     /* ---------- Main ---------- */
 
     #main-alerts {
-        bottom: auto;
-        top: 3em;
+        bottom: 0;
     }
 
     section {

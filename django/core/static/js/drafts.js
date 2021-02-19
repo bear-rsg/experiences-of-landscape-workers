@@ -124,9 +124,7 @@ $(document).ready(function () {
                         // Delete currentDraft cookie
                         deleteCookie("currentDraft");
                         // Refresh page
-                        window.location.assign(
-                            window.location.pathname + "#mydrafts-title"
-                        );
+                        window.location.assign(window.location.pathname);
                     });
             } else {
                 alert("Draft is empty");
@@ -185,8 +183,17 @@ $(document).ready(function () {
     });
 
     // Clear currentDraft cookie each time a page is navigated to via the navigation buttons
-    $(".nav-item").on("click", function () {
+    $(".nav-item, #alerts-complete-drafts").on("click", function () {
+        console.log('yo');
         deleteCookie("currentDraft");
+    });
+
+    // Navigate to drafts and clear currentDraft cookie each time the draft alert is clicked
+    $("#main-alerts").on("click", "#alerts-complete-drafts", function () {
+        // Clear cookie
+        deleteCookie("currentDraft");
+        // Go to drafts
+        window.location.assign("/journal/drafts/");
     });
 
     // Clicking on a draft in the list
@@ -224,7 +231,7 @@ $(document).ready(function () {
         db.drafts.count().then(function (c) {
             if (c > 0) {
                 // Show the message
-                html_drafts = `<a href="/journal/drafts/">Tap here to complete your drafts</a>`;
+                html_drafts = `<span id="alerts-complete-drafts">Tap here to complete your drafts</span>`;
                 $("#main-alerts").html(html_drafts).slideDown("fast");
             }
         });
