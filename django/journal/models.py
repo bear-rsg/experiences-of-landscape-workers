@@ -57,8 +57,9 @@ class JournalEntry(BaseModel):
         Override save method to reduce quality of photos, to improve performance
         """
         super().save(*args, **kwargs)
-        img = Image.open(self.entry_image.path)
-        img.save(self.entry_image.path, quality=40, optimize=True)
+        if self.entry_image:
+            img = Image.open(self.entry_image.path)
+            img.save(self.entry_image.path, quality=40, optimize=True)
 
     class Meta:
         verbose_name_plural = "Journal entries"

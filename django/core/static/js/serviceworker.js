@@ -3,9 +3,7 @@ var filesToCache = [
     '/',
     '/cookies/',
     '/offline/',
-    '/journal/',
     '/journal/drafts/',
-    '/accounts/profile/',
     
     'static/images/favicon.png',
     'static/images/pwa/icon-48.png',
