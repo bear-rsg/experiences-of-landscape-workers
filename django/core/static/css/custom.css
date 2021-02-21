@@ -45,7 +45,7 @@ a:hover {
 }
 
 .btn-primary {
-    background: #1c4834;
+    background: #005763;
     border: none;
 }
 
@@ -113,6 +113,7 @@ textarea {
 
 input[type='file'] {
     border: none;
+    border-radius: 0;
 }
 
 input[type='checkbox'] {
@@ -300,9 +301,8 @@ section#section-welcome-banner h2 {
 /* ---------- Journal ---------- */
 
 #journalentry-list-search {
-    background: transparent;
+    background: white;
     border: none;
-    border-bottom: 2px solid #808080;
     display: block;
     width: 40em;
     max-width: 100%;

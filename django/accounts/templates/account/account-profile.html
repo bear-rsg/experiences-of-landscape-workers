@@ -57,11 +57,11 @@
         </section>
 
         <h2>Logout</h2>
-        <section>
-            <p>
-                <a href="{% url 'logout' %}">Logout of your account</a>
-            </p>
-        </section>
+
+            <div class="bigbuttons">
+                <a href="{% url 'logout' %}" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+
         
     {% else %}
     {# if the user IS NOT logged in #}

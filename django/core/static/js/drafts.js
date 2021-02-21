@@ -253,7 +253,7 @@ $(document).ready(function () {
             var buttons = `<button id="drafteditor-buttons-save" type="submit" class="btn btn-primary"><i class="fas fa-pen"></i> Save Changes</button>`;
             // If online, give option to add to journal
             if (navigator.onLine) {
-                buttons += `<button id="drafteditor-buttons-addtojournal" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add To Journal</button>`;
+                buttons += `<button id="drafteditor-buttons-addtojournal" class="btn btn-info"><i class="fas fa-plus-circle"></i> Ready to Submit</button>`;
             }
             buttons += `<button id="drafteditor-buttons-delete" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>`;
         } else {

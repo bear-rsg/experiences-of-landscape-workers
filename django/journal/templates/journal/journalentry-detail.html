@@ -9,21 +9,25 @@
 
     <h1>{{ object.title }}</h1>
     <section>
+        <!-- Text -->
         <div class="journalentry-detail-text">{{ object.entry_text|linebreaks }}</div>
+        <!-- Image -->
         {% if object.entry_image %}
             <div class="journalentry-detail-image">
                 <a href="{{ object.entry_image.url }}"><img src="{{ object.entry_image.url }}" alt="{{ object.entry_text|truncatechars:50 }}"></a>
             </div>
         {% endif %}
+        <!-- Buttons -->
+        <div class="bigbuttons">
+            <a href="{% url 'journal-journalentry-update' object.id %}" class="btn btn-info">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a href="{% url 'journal-journalentry-delete' object.id %}" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Delete
+            </a>
+        </div>
     </section>
 
-    <div id="journalentry-detail-actions">
-        <a href="{% url 'journal-journalentry-update' object.id %}" class="btn btn-info">
-            <i class="fas fa-edit"></i> Edit
-        </a>
-        <a href="{% url 'journal-journalentry-delete' object.id %}" class="btn btn-danger">
-            <i class="fas fa-trash-alt"></i> Delete
-        </a>
-    </div>
+   
 
 {% endblock %}
