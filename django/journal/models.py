@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from PIL import Image
 
 
 class BaseModel(models.Model):
@@ -50,6 +51,14 @@ class JournalEntry(BaseModel):
 
     def __str__(self):
         return str(self.title)
+
+    def save(self, *args, **kwargs):
+        """
+        Override save method to reduce quality of photos, to improve performance
+        """
+        super().save(*args, **kwargs)
+        img = Image.open(self.entry_image.path)
+        img.save(self.entry_image.path, quality=40, optimize=True)
 
     class Meta:
         verbose_name_plural = "Journal entries"
