@@ -5,45 +5,11 @@
 
     <h1>Add Journal Entry</h1>
     <section>
-        <form id="journalentry-create-form" method="POST" action="" enctype="multipart/form-data">
+        <form id="journalentry-form" method="POST" action="" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
+            <button id="journalentry-form-submit" class="btn btn-primary">Submit</button>
         </form>
-        <button id="journalentry-create-form-submit" class="btn btn-primary">Submit</button>
     </section>
-
-    <div class="loading-container">
-        <div class="loading"><div></div><div></div><div></div><div></div></div>
-    </div>
-
-    <script>
-        $('#journalentry-create-form-submit').on('click', function(e) {
-            
-            // If form is valid (i.e. mandatory text is present)
-            if ($("#id_entry_text").val() != '') {
-                // Stop form from submitting
-                e.preventDefault();
-                // Show loading screen
-                $('.loading-container').show();
-                $('html, body').css('overflow', 'hidden');
-                // Articificially add a second for the loading screen
-                setTimeout(function () {
-                    $('#journalentry-create-form').submit();    
-                }, 1000);
-            }
-        });
-
-        // Disable/enable the submit button based on whether it has content
-        $("#id_entry_text").on('input', function() {
-            if ($(this).val() != '') {
-                $('#journalentry-create-form-submit').prop('disabled', false);
-            }
-            else {
-                $('#journalentry-create-form-submit').prop('disabled', true);
-            }
-        });
-        $("#id_entry_text").trigger('input');
-        
-    </script>
 
 {% endblock %}
