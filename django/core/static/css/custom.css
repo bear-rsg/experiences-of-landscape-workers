@@ -355,17 +355,11 @@ a.journalentry-list-item:hover {
     display: block;
 }
 
-.journalentry-detail-title {
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 0.6em;
-    display: block;
-}
-
 .journalentry-detail-text {
     font-size: 1em;
     line-height: 1.7em;
     letter-spacing: 0.03em;
+    margin-top: -2.5em;
 }
 
 .journalentry-detail-text p {

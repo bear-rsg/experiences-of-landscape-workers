@@ -7,9 +7,8 @@
         <a href="{% url 'journal-journalentry-list' %}">&lt; My Journal</a>
     </div>
 
-    <h1>Journal Entry</h1>
+    <h1>{{ object.title }}</h1>
     <section>
-        <div class="journalentry-detail-title">{{ object.title }}</div>
         <div class="journalentry-detail-text">{{ object.entry_text|linebreaks }}</div>
         {% if object.entry_image %}
             <div class="journalentry-detail-image">
