@@ -61,14 +61,97 @@ self.addEventListener('activate', event => {
 });
 
 // Serve from Cache
-self.addEventListener("fetch", event => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                return response || fetch(event.request);
+// self.addEventListener("fetch", event => {
+//     event.respondWith(
+//         caches.match(event.request)
+//             .then(response => {
+//                 return response || fetch(event.request);
+//             })
+//             .catch(() => {
+//                 return caches.match('/offline/');
+//             })
+//     )
+// });
+
+
+
+
+
+
+// // Network falling back to the cache
+// self.addEventListener('fetch', function(event) {
+//     event.respondWith(
+
+//       fetch(event.request).catch(function() {
+//         return caches.match(event.request);
+//       })
+
+//     );
+//   });
+
+
+
+//   // Cache falling back to the network
+//   self.addEventListener('fetch', function(event) {
+//     event.respondWith(
+
+//       caches.match(event.request).then(function(response) {
+//         return response || fetch(event.request);
+//       })
+
+//     );
+//   });
+  
+
+
+
+//   // Generic fallback
+//   self.addEventListener('fetch', function(event) {
+//     event.respondWith(
+
+//       // Try the cache
+//       caches.match(event.request).then(function(response) {
+//         // Fall back to network
+//         return response || fetch(event.request);
+//       }).catch(function() {
+//         // If both fail, show a generic fallback:
+//         return caches.match('/offline.html');
+//         // However, in reality you'd have many different
+//         // fallbacks, depending on URL & headers.
+//         // Eg, a fallback silhouette image for avatars.
+//       })
+
+//     );
+//   });
+
+
+
+
+
+
+  // My attempt: Network -> Cache -> Fallback
+  self.addEventListener('fetch', function(event) {
+    
+    if (navigator.onLine) {
+        event.respondWith(
+            // Network falling back to the cache
+            fetch(event.request).catch(function() {
+                return caches.match(event.request);
             })
-            .catch(() => {
-                return caches.match('/offline/');
-            })
-    )
-});
+        )
+    }
+    else {
+        event.respondWith(
+            caches.match(event.request)
+                .then(response => {
+                    return response || fetch(event.request);
+                })
+                .catch(() => {
+                    return caches.match('/offline/');
+                })
+        )
+    }
+    
+  });
+
+
