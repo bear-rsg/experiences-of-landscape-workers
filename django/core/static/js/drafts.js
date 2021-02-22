@@ -151,7 +151,7 @@ $(document).ready(function () {
     );
 
     // Delete current draft when submitting journal entry
-    $("#journalentry-create-form").on("submit", function () {
+    $("#journalentry-form").on("submit", function () {
         //If journal entry came from a draft, delete the draft
         if (getCookie("currentDraft")) {
             db.drafts.delete(getCookie("currentDraft"));
