@@ -45,6 +45,7 @@
         <script src="{% static 'js/dexie.min.js' %}"></script>
 
         <!-- JavaScript: Custom -->
+        <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/drafts.js' %}"></script>
         <script src="{% static 'js/cookiesmsg.js' %}"></script>
 
@@ -106,12 +107,18 @@
 
         <!-- Main -->
         <main id="main">
-            <!-- Alerts are delivered dynamically do this div -->
-            <div id="main-alerts"></div>
             
             <div id="main-content" class="container">
                 {% block main %}
                 {% endblock %}
+            </div>
+
+            <!-- Alerts are delivered dynamically do this div -->
+            <div id="main-alerts"></div>
+
+            <!-- Loading icon, that displays when a time consuming task is happening, e.g. uploading a photo -->
+            <div class="loading-container">
+                <div class="loading"><div></div><div></div><div></div><div></div></div>
             </div>
         </main>
 

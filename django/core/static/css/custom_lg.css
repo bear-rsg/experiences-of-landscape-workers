@@ -23,8 +23,7 @@
     /* ---------- Main ---------- */
 
     #main-alerts {
-        bottom: auto;
-        top: 3em;
+        bottom: 0;
     }
 
     section {
@@ -52,18 +51,23 @@
         margin-bottom: 1em;
     }
 
-    #journalentry-detail-actions {
-        text-align: right;
+    .bigbuttons {
+        text-align: center;
         margin-top: 2.7em;
     }
     
-    #journalentry-detail-actions a {
-        width: 6.9em;
+    .bigbuttons a,
+    .bigbuttons button {
+        width: auto;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        min-width: 8em;
         margin-left: 2em;
-        font-size: 0.9em;
+        font-size: 1em;
     }
     
-    #journalentry-detail-actions a i {
+    .bigbuttons a i,
+    .bigbuttons button i {
         margin-right: 0.5em;
     }
 

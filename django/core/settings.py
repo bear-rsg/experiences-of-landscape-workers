@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 # PWA
 
-PWA_APP_NAME = 'experiences-of-landscape-workers'
+PWA_APP_NAME = 'Landscape Workers'
 PWA_APP_DESCRIPTION = "Experiences of Landscape Workers"
 PWA_APP_THEME_COLOR = '#000000'
 PWA_APP_BACKGROUND_COLOR = '#ffffff'
@@ -70,19 +70,63 @@ PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
 PWA_APP_ICONS = [
     {
-        'src': '/static/images/pwa/icon-160.png',
-        'sizes': '160x160'
+        'src': '/static/images/pwa/icon-48.png',
+        'sizes': '48x48'
+    },
+    {
+        'src': '/static/images/pwa/icon-72.png',
+        'sizes': '72x72'
+    },
+    {
+        'src': '/static/images/pwa/icon-96.png',
+        'sizes': '96x96'
+    },
+    {
+        'src': '/static/images/pwa/icon-128.png',
+        'sizes': '128x128'
+    },
+    {
+        'src': '/static/images/pwa/icon-144.png',
+        'sizes': '144x144'
+    },
+    {
+        'src': '/static/images/pwa/icon-152.png',
+        'sizes': '152x152'
+    },
+    {
+        'src': '/static/images/pwa/icon-167.png',
+        'sizes': '167x167'
+    },
+    {
+        'src': '/static/images/pwa/icon-180.png',
+        'sizes': '180x180'
+    },
+    {
+        'src': '/static/images/pwa/icon-192.png',
+        'sizes': '192x192'
+    },
+    {
+        'src': '/static/images/pwa/icon-256.png',
+        'sizes': '256x256'
+    },
+    {
+        'src': '/static/images/pwa/icon-512.png',
+        'sizes': '512x512'
+    },
+    {
+        'src': '/static/images/pwa/icon-1024.png',
+        'sizes': '1024x1024'
     }
 ]
 PWA_APP_ICONS_APPLE = [
     {
-        'src': '/static/images/pwa/icon-160.png',
-        'sizes': '160x160'
+        'src': '/static/images/pwa/icon-256.png',
+        'sizes': '256x256'
     }
 ]
 PWA_APP_SPLASH_SCREEN = [
     {
-        'src': '/static/images/pwa/icon-512.png',
+        'src': '/static/images/pwa/icon-1024.png',
         'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
     }
 ]
