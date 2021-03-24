@@ -15,7 +15,9 @@ $(document).ready(function () {
             }, 1000);
         }
         else {
-            alert("Journal entry text is empty");
+            alert(`You need to supply text for each journal entry you upload.
+            
+If the focus of your entry is an image, please use the text box to provide a quick description of the image.`);
         }
     });
 
