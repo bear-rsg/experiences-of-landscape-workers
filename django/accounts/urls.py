@@ -16,5 +16,6 @@ urlpatterns = [
     # Custom views
     path('profile/', views.AccountProfileTemplateView.as_view(), name='account-profile'),
     path('create/', views.AccountCreateView.as_view(), name='account-create'),
+    path('create/success/', views.AccountCreateSuccessTemplateView.as_view(), name='account-create-success'),
 
 ]
