@@ -19,4 +19,12 @@ class AccountCreateView(CreateView):
 
     template_name = 'account/account-create.html'
     form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('account-create-success')
+
+
+class AccountCreateSuccessTemplateView(TemplateView):
+    """
+    Class-based view to show the account create success template
+    """
+
+    template_name = 'account/account-create-success.html'

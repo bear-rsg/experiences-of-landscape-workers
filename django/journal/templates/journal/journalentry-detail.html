@@ -3,24 +3,22 @@
 
 {% block main %}
 
-    <div class="container-fluid">
+    <div>
+        <a href="{% url 'journal-journalentry-list' %}">&lt; My Journal</a>
+    </div>
 
-        <div>
-            <a href="{% url 'journal-journalentry-list' %}">&lt; My Journal</a>
-        </div>
-
-        <h1>Journal Entry</h1>
-        <section>
-            <div class="journalentry-detail-title">{{ object.title }}</div>
-            <div class="journalentry-detail-text">{{ object.entry_text|linebreaks }}</div>
-            {% if object.entry_image %}
-                <div class="journalentry-detail-image">
-                    <a href="{{ object.entry_image.url }}"><img src="{{ object.entry_image.url }}" alt="{{ object.entry_text|truncatechars:50 }}"></a>
-                </div>
-            {% endif %}
-        </section>
-
-        <div id="journalentry-detail-actions">
+    <h1>{{ object.title }}</h1>
+    <section>
+        <!-- Text -->
+        <div class="journalentry-detail-text">{{ object.entry_text|linebreaks }}</div>
+        <!-- Image -->
+        {% if object.entry_image %}
+            <div class="journalentry-detail-image">
+                <a href="{{ object.entry_image.url }}"><img src="{{ object.entry_image.url }}" alt="{{ object.entry_text|truncatechars:50 }}"></a>
+            </div>
+        {% endif %}
+        <!-- Buttons -->
+        <div class="bigbuttons">
             <a href="{% url 'journal-journalentry-update' object.id %}" class="btn btn-info">
                 <i class="fas fa-edit"></i> Edit
             </a>
@@ -28,7 +26,8 @@
                 <i class="fas fa-trash-alt"></i> Delete
             </a>
         </div>
+    </section>
 
-    </div>
+   
 
 {% endblock %}

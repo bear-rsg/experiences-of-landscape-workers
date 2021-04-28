@@ -24,7 +24,6 @@
     /* ---------- Main ---------- */
 
     #main-alerts {
-        top: auto;
         bottom: 3em;
     }
 
@@ -52,19 +51,21 @@
         width: 100%;
     }
 
-    #journalentry-detail-actions {
+    .bigbuttons {
         text-align: center;
         margin-top: 2em;
     }
     
-    #journalentry-detail-actions a {
+    .bigbuttons a,
+    .bigbuttons button {
         width: 100%;
-        margin-top: 2em;
+        margin-top: 1em;
         font-size: 1em;
         padding: 0.8em 0;
     }
     
-    #journalentry-detail-actions a i {
+    .bigbuttons a i,
+    .bigbuttons button i {
         margin-right: 0.5em;
     }
 }

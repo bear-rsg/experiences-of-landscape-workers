@@ -45,7 +45,7 @@ a:hover {
 }
 
 .btn-primary {
-    background: #1c4834;
+    background: #005763;
     border: none;
 }
 
@@ -113,6 +113,7 @@ textarea {
 
 input[type='file'] {
     border: none;
+    border-radius: 0;
 }
 
 input[type='checkbox'] {
@@ -145,6 +146,62 @@ button {
     font-size: 0.8em;
 }
 
+/* ---------- Loading Animation ---------- */
+
+.loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+}
+
+.loading {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loading div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    top: calc(50vh - 32px);
+    left: calc(50vw - 32px);
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+}
+
+.loading div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.loading div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.loading div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+  
+
 /* ---------- Navigation ---------- */
 
 nav {
@@ -156,6 +213,7 @@ nav {
     position: fixed;
     left: 0;
     overflow: hidden;
+    z-index: 1000;
 }
 
 nav ul {
@@ -243,9 +301,8 @@ section#section-welcome-banner h2 {
 /* ---------- Journal ---------- */
 
 #journalentry-list-search {
-    background: transparent;
+    background: white;
     border: none;
-    border-bottom: 2px solid #808080;
     display: block;
     width: 40em;
     max-width: 100%;
@@ -298,17 +355,11 @@ a.journalentry-list-item:hover {
     display: block;
 }
 
-.journalentry-detail-title {
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 0.6em;
-    display: block;
-}
-
 .journalentry-detail-text {
     font-size: 1em;
     line-height: 1.7em;
     letter-spacing: 0.03em;
+    margin-top: -2.5em;
 }
 
 .journalentry-detail-text p {
