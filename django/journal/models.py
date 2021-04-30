@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
-from PIL import Image
+from PIL import Image, ImageOps
 
 
 class BaseModel(models.Model):
@@ -57,8 +57,11 @@ class JournalEntry(BaseModel):
         Override save method to reduce quality of photos, to improve performance
         """
         super().save(*args, **kwargs)
+
+
         if self.entry_image:
             img = Image.open(self.entry_image.path)
+            img = ImageOps.exif_transpose(img)
             img.save(self.entry_image.path, quality=40, optimize=True)
 
     class Meta:
