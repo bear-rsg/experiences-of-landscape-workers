@@ -58,7 +58,6 @@ class JournalEntry(BaseModel):
         """
         super().save(*args, **kwargs)
 
-
         if self.entry_image:
             img = Image.open(self.entry_image.path)
             img = ImageOps.exif_transpose(img)
