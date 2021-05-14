@@ -47,7 +47,6 @@
         <!-- JavaScript: Custom -->
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/drafts.js' %}"></script>
-        <script src="{% static 'js/cookiesmsg.js' %}"></script>
 
         <!--Set the favicon-->
         <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
@@ -146,5 +145,8 @@
         </footer>
 
     </body>
+
+    <!-- Cookies msg (has to appear after body to work correctly) -->
+    <script src="{% static 'js/cookiesmsg.js' %}"></script>
 
 </html>
