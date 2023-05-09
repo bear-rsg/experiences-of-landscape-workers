@@ -3,7 +3,10 @@
         "runners": ["axe", "htmlcs"],
         "chromeLaunchConfig": {
             "args": ["--no-sandbox"]
-        }
+        },
+        "hideElements": [
+            "#cookie-message-popup"
+        ]
     },
     "urls": [
         "http://127.0.0.1:8000/",

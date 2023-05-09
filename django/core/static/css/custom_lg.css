@@ -34,7 +34,7 @@
 
     section#section-welcome-banner h2 {
         font-size: 3.5em;
-        padding: 7em 0.5em 0.2em 0.5em;
+        margin: 7em 0.5em 0.2em 0.5em;
         vertical-align: bottom;
     }
 
