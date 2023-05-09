@@ -1,8 +1,7 @@
 # Please follow suitable version specifiers, as outlined in https://www.python.org/dev/peps/pep-0440/#version-specifiers
 # For Django versioning we use ~= (e.g. Django~=3.1.0) which will keep the minor version up to date (e.g. the latest version prior to 3.2.0)
 
-Django~=3.2.0
-pytz~=2020.0
-djangorestframework~=3.12.0
-Pillow~=8.1.0
-django-pwa~=1.0.10
+Django~=4.2.0
+djangorestframework~=3.14.0
+Pillow~=9.1.0
+django-pwa~=1.1.0
