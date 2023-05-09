@@ -27,7 +27,8 @@ h2 {
     padding-bottom: 0.1em;
     font-weight: bold;
     font-size: 2.3em;
-    color: #101010;
+    color: black;
+    background-color: white;
 }
 
 .form-inline .form-control {
